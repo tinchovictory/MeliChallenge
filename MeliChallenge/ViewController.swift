@@ -15,6 +15,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    override func loadView() {
+        self.view = UIView()
+        self.view.backgroundColor = .white
+    }
 }
 
