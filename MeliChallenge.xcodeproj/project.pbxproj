@@ -12,6 +12,8 @@
 		5B7D07CD24674F65008E561A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07CC24674F65008E561A /* Router.swift */; };
 		5B7D07CF24675037008E561A /* RouterImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07CE24675037008E561A /* RouterImplementation.swift */; };
 		5B7D07D124675539008E561A /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07D024675539008E561A /* SearchCoordinator.swift */; };
+		5B7D07D3246759EF008E561A /* SearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07D2246759EF008E561A /* SearchVM.swift */; };
+		5B7D07D524675E00008E561A /* SearchVMImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07D424675E00008E561A /* SearchVMImplementation.swift */; };
 		5BA9D01A2467011B005F8A6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA9D0192467011B005F8A6E /* AppDelegate.swift */; };
 		5BA9D01C2467011B005F8A6E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA9D01B2467011B005F8A6E /* SceneDelegate.swift */; };
 		5BA9D01E2467011B005F8A6E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA9D01D2467011B005F8A6E /* SearchViewController.swift */; };
@@ -36,6 +38,8 @@
 		5B7D07CC24674F65008E561A /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		5B7D07CE24675037008E561A /* RouterImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterImplementation.swift; sourceTree = "<group>"; };
 		5B7D07D024675539008E561A /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
+		5B7D07D2246759EF008E561A /* SearchVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVM.swift; sourceTree = "<group>"; };
+		5B7D07D424675E00008E561A /* SearchVMImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVMImplementation.swift; sourceTree = "<group>"; };
 		5BA9D0162467011B005F8A6E /* MeliChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeliChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA9D0192467011B005F8A6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BA9D01B2467011B005F8A6E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,7 +73,7 @@
 		5B7D07C324674DAF008E561A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5BA9D01D2467011B005F8A6E /* SearchViewController.swift */,
+				5B7D07D8246763A8008E561A /* Search */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -84,6 +88,7 @@
 		5B7D07C524674DBB008E561A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				5B7D07D7246763A1008E561A /* Search */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -104,9 +109,34 @@
 				5B7D07CC24674F65008E561A /* Router.swift */,
 				5B7D07CE24675037008E561A /* RouterImplementation.swift */,
 				5B7D07CA24674EA2008E561A /* AppCoordinator.swift */,
-				5B7D07D024675539008E561A /* SearchCoordinator.swift */,
+				5B7D07D62467639A008E561A /* Search */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		5B7D07D62467639A008E561A /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				5B7D07D024675539008E561A /* SearchCoordinator.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		5B7D07D7246763A1008E561A /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				5B7D07D2246759EF008E561A /* SearchVM.swift */,
+				5B7D07D424675E00008E561A /* SearchVMImplementation.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		5B7D07D8246763A8008E561A /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				5BA9D01D2467011B005F8A6E /* SearchViewController.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		5BA9D00D2467011B005F8A6E = {
@@ -251,9 +281,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B7D07D524675E00008E561A /* SearchVMImplementation.swift in Sources */,
 				5B7D07C924674E3E008E561A /* Coordinator.swift in Sources */,
 				5BA9D01E2467011B005F8A6E /* SearchViewController.swift in Sources */,
 				5B7D07CB24674EA2008E561A /* AppCoordinator.swift in Sources */,
+				5B7D07D3246759EF008E561A /* SearchVM.swift in Sources */,
 				5BA9D01A2467011B005F8A6E /* AppDelegate.swift in Sources */,
 				5B7D07D124675539008E561A /* SearchCoordinator.swift in Sources */,
 				5B7D07CD24674F65008E561A /* Router.swift in Sources */,

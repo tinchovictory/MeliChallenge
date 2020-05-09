@@ -13,15 +13,12 @@ class AppCoordinator: Coordinator {
     private let window: UIWindow
     private let navigationController: UINavigationController
     
-//    private var coordinators: [Coordinator]
     private var childCoordinator: Coordinator?
     
     init(window: UIWindow) {
         self.window = window
         self.navigationController = UINavigationController()
         self.window.rootViewController = self.navigationController
-        
-//        self.coordinators = [Coordinator]()
     }
     
     func start() {
@@ -34,14 +31,16 @@ extension AppCoordinator: SearchCoordinatorDelegate {
     private func showSearch() {
         let searchCoordinator = SearchCoordinator(navigationController: self.navigationController)
         searchCoordinator.delegate = self
-        
+    
+        // keep track of the child coordinator to avoid loosing the pointer
         self.childCoordinator = searchCoordinator
         
         searchCoordinator.start()
     }
     
     func searchCoordinatorDidFinish(searchCoordinator: SearchCoordinator) {
-        self.childCoordinator = nil
+        // this should never be called since it's the initial vc
+        // self.childCoordinator = nil
     }
     
 }

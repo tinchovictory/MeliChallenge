@@ -23,6 +23,18 @@ class SearchCoordinator: Coordinator {
     
     func start() {
         let searchViewController = SearchViewController()
+        let viewModel = SearchVMImplementation()
+        viewModel.coordinatorDelegate = self
+
+        searchViewController.viewModel = viewModel
+        
         self.navigationController.pushViewController(searchViewController, animated: false)
+    }
+}
+
+extension SearchCoordinator: SearchVMCoordinatorDelegate {
+    func searchVMDidFinish(viewModel: SearchVM) {
+        // I have the search word go to display the results
+        print("go to results with word \(viewModel.search)")
     }
 }
