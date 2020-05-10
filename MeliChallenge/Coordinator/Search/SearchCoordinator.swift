@@ -15,6 +15,7 @@ protocol SearchCoordinatorDelegate: class {
 class SearchCoordinator: Coordinator {
     
     private let navigationController: UINavigationController
+    private var childCoordinator: Coordinator?
     weak var delegate: SearchCoordinatorDelegate?
     
     init(navigationController: UINavigationController) {
@@ -36,5 +37,18 @@ extension SearchCoordinator: SearchVMCoordinatorDelegate {
     func searchVMDidFinish(viewModel: SearchVM) {
         // I have the search word go to display the results
         print("go to results with word \(viewModel.search)")
+        
+        let resultsCoordinator = ResultsCoordinator(navigationController: self.navigationController, searchWord: viewModel.search)
+        resultsCoordinator.delegate = self
+        self.childCoordinator = resultsCoordinator
+        
+        resultsCoordinator.start()
+    }
+}
+
+extension SearchCoordinator: ResultsCoordinatorDelegate {
+    func resultsCoordinatorDidFinish(resultsCoordinator: ResultsCoordinator) {
+        self.childCoordinator = nil
+        self.navigationController.popViewController(animated: true)
     }
 }

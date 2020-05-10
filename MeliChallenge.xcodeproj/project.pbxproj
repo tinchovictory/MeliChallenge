@@ -14,9 +14,17 @@
 		5B7D07D124675539008E561A /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07D024675539008E561A /* SearchCoordinator.swift */; };
 		5B7D07D3246759EF008E561A /* SearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07D2246759EF008E561A /* SearchVM.swift */; };
 		5B7D07D524675E00008E561A /* SearchVMImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07D424675E00008E561A /* SearchVMImplementation.swift */; };
+		5B7D07DF24676DC2008E561A /* ResultsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07DE24676DC2008E561A /* ResultsCoordinator.swift */; };
+		5B7D07E124676E4A008E561A /* ResultsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07E024676E4A008E561A /* ResultsVM.swift */; };
+		5B7D07E324676E70008E561A /* ResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07E224676E70008E561A /* ResultsVC.swift */; };
+		5B7D07E524676E9A008E561A /* ResultsVMImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07E424676E9A008E561A /* ResultsVMImplementation.swift */; };
+		5B7D07E72467760E008E561A /* ResultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07E62467760E008E561A /* ResultItem.swift */; };
+		5B7D07E9246776E0008E561A /* ResultItemImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07E8246776E0008E561A /* ResultItemImplementation.swift */; };
+		5B7D07EB24677A02008E561A /* ResultsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07EA24677A02008E561A /* ResultsList.swift */; };
+		5B7D07ED24677A0D008E561A /* ResultsListImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07EC24677A0D008E561A /* ResultsListImplementation.swift */; };
 		5BA9D01A2467011B005F8A6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA9D0192467011B005F8A6E /* AppDelegate.swift */; };
 		5BA9D01C2467011B005F8A6E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA9D01B2467011B005F8A6E /* SceneDelegate.swift */; };
-		5BA9D01E2467011B005F8A6E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA9D01D2467011B005F8A6E /* SearchViewController.swift */; };
+		5BA9D01E2467011B005F8A6E /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA9D01D2467011B005F8A6E /* SearchVC.swift */; };
 		5BA9D0232467011C005F8A6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BA9D0222467011C005F8A6E /* Assets.xcassets */; };
 		5BA9D0262467011C005F8A6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BA9D0242467011C005F8A6E /* LaunchScreen.storyboard */; };
 		5BA9D0312467011C005F8A6E /* MeliChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA9D0302467011C005F8A6E /* MeliChallengeTests.swift */; };
@@ -40,10 +48,18 @@
 		5B7D07D024675539008E561A /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
 		5B7D07D2246759EF008E561A /* SearchVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVM.swift; sourceTree = "<group>"; };
 		5B7D07D424675E00008E561A /* SearchVMImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVMImplementation.swift; sourceTree = "<group>"; };
+		5B7D07DE24676DC2008E561A /* ResultsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsCoordinator.swift; sourceTree = "<group>"; };
+		5B7D07E024676E4A008E561A /* ResultsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsVM.swift; sourceTree = "<group>"; };
+		5B7D07E224676E70008E561A /* ResultsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsVC.swift; sourceTree = "<group>"; };
+		5B7D07E424676E9A008E561A /* ResultsVMImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsVMImplementation.swift; sourceTree = "<group>"; };
+		5B7D07E62467760E008E561A /* ResultItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultItem.swift; sourceTree = "<group>"; };
+		5B7D07E8246776E0008E561A /* ResultItemImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultItemImplementation.swift; sourceTree = "<group>"; };
+		5B7D07EA24677A02008E561A /* ResultsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsList.swift; sourceTree = "<group>"; };
+		5B7D07EC24677A0D008E561A /* ResultsListImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsListImplementation.swift; sourceTree = "<group>"; };
 		5BA9D0162467011B005F8A6E /* MeliChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeliChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA9D0192467011B005F8A6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BA9D01B2467011B005F8A6E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5BA9D01D2467011B005F8A6E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		5BA9D01D2467011B005F8A6E /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		5BA9D0222467011C005F8A6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BA9D0252467011C005F8A6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BA9D0272467011C005F8A6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				5B7D07D8246763A8008E561A /* Search */,
+				5B7D07DB24676D95008E561A /* Results */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -81,6 +98,7 @@
 		5B7D07C424674DB5008E561A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5B7D07DC24676D9F008E561A /* Results */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -89,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				5B7D07D7246763A1008E561A /* Search */,
+				5B7D07DA24676D8B008E561A /* Results */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -110,6 +129,7 @@
 				5B7D07CE24675037008E561A /* RouterImplementation.swift */,
 				5B7D07CA24674EA2008E561A /* AppCoordinator.swift */,
 				5B7D07D62467639A008E561A /* Search */,
+				5B7D07D924676D68008E561A /* Results */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -134,9 +154,45 @@
 		5B7D07D8246763A8008E561A /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				5BA9D01D2467011B005F8A6E /* SearchViewController.swift */,
+				5BA9D01D2467011B005F8A6E /* SearchVC.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		5B7D07D924676D68008E561A /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				5B7D07DE24676DC2008E561A /* ResultsCoordinator.swift */,
+			);
+			path = Results;
+			sourceTree = "<group>";
+		};
+		5B7D07DA24676D8B008E561A /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				5B7D07E024676E4A008E561A /* ResultsVM.swift */,
+				5B7D07E424676E9A008E561A /* ResultsVMImplementation.swift */,
+			);
+			path = Results;
+			sourceTree = "<group>";
+		};
+		5B7D07DB24676D95008E561A /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				5B7D07E224676E70008E561A /* ResultsVC.swift */,
+			);
+			path = Results;
+			sourceTree = "<group>";
+		};
+		5B7D07DC24676D9F008E561A /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				5B7D07E62467760E008E561A /* ResultItem.swift */,
+				5B7D07E8246776E0008E561A /* ResultItemImplementation.swift */,
+				5B7D07EA24677A02008E561A /* ResultsList.swift */,
+				5B7D07EC24677A0D008E561A /* ResultsListImplementation.swift */,
+			);
+			path = Results;
 			sourceTree = "<group>";
 		};
 		5BA9D00D2467011B005F8A6E = {
@@ -283,14 +339,22 @@
 			files = (
 				5B7D07D524675E00008E561A /* SearchVMImplementation.swift in Sources */,
 				5B7D07C924674E3E008E561A /* Coordinator.swift in Sources */,
-				5BA9D01E2467011B005F8A6E /* SearchViewController.swift in Sources */,
+				5BA9D01E2467011B005F8A6E /* SearchVC.swift in Sources */,
 				5B7D07CB24674EA2008E561A /* AppCoordinator.swift in Sources */,
 				5B7D07D3246759EF008E561A /* SearchVM.swift in Sources */,
 				5BA9D01A2467011B005F8A6E /* AppDelegate.swift in Sources */,
+				5B7D07E72467760E008E561A /* ResultItem.swift in Sources */,
+				5B7D07EB24677A02008E561A /* ResultsList.swift in Sources */,
 				5B7D07D124675539008E561A /* SearchCoordinator.swift in Sources */,
+				5B7D07E324676E70008E561A /* ResultsVC.swift in Sources */,
+				5B7D07ED24677A0D008E561A /* ResultsListImplementation.swift in Sources */,
+				5B7D07DF24676DC2008E561A /* ResultsCoordinator.swift in Sources */,
+				5B7D07E524676E9A008E561A /* ResultsVMImplementation.swift in Sources */,
 				5B7D07CD24674F65008E561A /* Router.swift in Sources */,
 				5B7D07CF24675037008E561A /* RouterImplementation.swift in Sources */,
 				5BA9D01C2467011B005F8A6E /* SceneDelegate.swift in Sources */,
+				5B7D07E9246776E0008E561A /* ResultItemImplementation.swift in Sources */,
+				5B7D07E124676E4A008E561A /* ResultsVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
