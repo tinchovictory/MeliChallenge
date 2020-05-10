@@ -16,7 +16,6 @@ class ResultsCoordinator: Coordinator {
     
     private let router: Router
     private let searchWord: String
-    private var childCoordinator: Coordinator?
     weak var delegate: ResultsCoordinatorDelegate?
     
     init(router: Router, searchWord: String) {
@@ -25,14 +24,13 @@ class ResultsCoordinator: Coordinator {
     }
     
     func start() {
-        let resultsVC = ResultsVC()
-        
         let model = ResultsListImplementation(searchWord: self.searchWord)
         
         let viewModel = ResultsVMImplementation()
         viewModel.coordinatorDelegate = self
         viewModel.model = model
 
+        let resultsVC = ResultsVC()
         resultsVC.viewModel = viewModel
         
         self.router.push(resultsVC, isAnimated: true, withCoordinator: self)
@@ -51,8 +49,6 @@ extension ResultsCoordinator: ResultsVMCoordinatorDelegate {
         
         let itemCoordinator = ItemCoordinator(router: self.router, itemId: item.id)
         itemCoordinator.delegate = self
-        self.childCoordinator = itemCoordinator
-
         itemCoordinator.start()
     }
     
@@ -64,6 +60,6 @@ extension ResultsCoordinator: ResultsVMCoordinatorDelegate {
 
 extension ResultsCoordinator: ItemCoordinatorDelegate {
     func itemCoordinatorDidFinish(itemCoordinator: ItemCoordinator) {
-        self.childCoordinator = nil
+        // nothing to be done when child coordinator ends
     }
 }

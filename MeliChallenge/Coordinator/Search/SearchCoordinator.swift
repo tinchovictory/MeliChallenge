@@ -15,7 +15,6 @@ protocol SearchCoordinatorDelegate: class {
 class SearchCoordinator: Coordinator {
     
     private let router: Router
-    private var childCoordinator: Coordinator?
     weak var delegate: SearchCoordinatorDelegate?
     
     init(router: Router) {
@@ -23,10 +22,10 @@ class SearchCoordinator: Coordinator {
     }
     
     func start() {
-        let searchViewController = SearchViewController()
         let viewModel = SearchVMImplementation()
         viewModel.coordinatorDelegate = self
 
+        let searchViewController = SearchViewController()
         searchViewController.viewModel = viewModel
         
         router.push(searchViewController, isAnimated: false, withCoordinator: self)
@@ -44,14 +43,13 @@ extension SearchCoordinator: SearchVMCoordinatorDelegate {
         
         let resultsCoordinator = ResultsCoordinator(router: self.router, searchWord: viewModel.search)
         resultsCoordinator.delegate = self
-        self.childCoordinator = resultsCoordinator
-        
         resultsCoordinator.start()
     }
 }
 
 extension SearchCoordinator: ResultsCoordinatorDelegate {
     func resultsCoordinatorDidFinish(resultsCoordinator: ResultsCoordinator) {
-        self.childCoordinator = nil
+        // nothing to be done when the child coordinator ends
+        // TODO: clear searchbar
     }
 }

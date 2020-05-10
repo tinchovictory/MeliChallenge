@@ -11,11 +11,8 @@ import UIKit
 class AppCoordinator: Coordinator {
     
     private let window: UIWindow
-//    private let navigationController: UINavigationController
     private let router: Router
-    
-    private var childCoordinator: Coordinator?
-    
+
     init(window: UIWindow) {
         self.window = window
         let navigationController = UINavigationController()
@@ -36,16 +33,11 @@ extension AppCoordinator: SearchCoordinatorDelegate {
     private func showSearch() {
         let searchCoordinator = SearchCoordinator(router: self.router)
         searchCoordinator.delegate = self
-    
-        // keep track of the child coordinator to avoid loosing the pointer
-        self.childCoordinator = searchCoordinator
-        
         searchCoordinator.start()
     }
     
     func searchCoordinatorDidFinish(searchCoordinator: SearchCoordinator) {
-        // this should never be called since it's the initial vc
-        // self.childCoordinator = nil
+        // nothing to be done when child coordinator ends
     }
     
 }
