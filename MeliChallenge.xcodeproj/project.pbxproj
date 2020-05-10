@@ -30,6 +30,7 @@
 		5B7D07FD24679E18008E561A /* ItemVMImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07FC24679E18008E561A /* ItemVMImplementation.swift */; };
 		5B7D07FF2467A03F008E561A /* ItemModelImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07FE2467A03F008E561A /* ItemModelImplementation.swift */; };
 		5B7D08012467A1F2008E561A /* ItemImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D08002467A1F2008E561A /* ItemImplementation.swift */; };
+		5B7D08042468503C008E561A /* OsLogExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D08032468503C008E561A /* OsLogExtension.swift */; };
 		5BA9D01A2467011B005F8A6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA9D0192467011B005F8A6E /* AppDelegate.swift */; };
 		5BA9D01C2467011B005F8A6E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA9D01B2467011B005F8A6E /* SceneDelegate.swift */; };
 		5BA9D01E2467011B005F8A6E /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA9D01D2467011B005F8A6E /* SearchVC.swift */; };
@@ -72,6 +73,7 @@
 		5B7D07FC24679E18008E561A /* ItemVMImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemVMImplementation.swift; sourceTree = "<group>"; };
 		5B7D07FE2467A03F008E561A /* ItemModelImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModelImplementation.swift; sourceTree = "<group>"; };
 		5B7D08002467A1F2008E561A /* ItemImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImplementation.swift; sourceTree = "<group>"; };
+		5B7D08032468503C008E561A /* OsLogExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OsLogExtension.swift; sourceTree = "<group>"; };
 		5BA9D0162467011B005F8A6E /* MeliChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeliChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA9D0192467011B005F8A6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BA9D01B2467011B005F8A6E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -251,6 +253,14 @@
 			path = Item;
 			sourceTree = "<group>";
 		};
+		5B7D080224684FFC008E561A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5B7D08032468503C008E561A /* OsLogExtension.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		5BA9D00D2467011B005F8A6E = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +287,7 @@
 				5B7D07C424674DB5008E561A /* Model */,
 				5B7D07C324674DAF008E561A /* View */,
 				5B7D07C624674DC4008E561A /* SupportingFiles */,
+				5B7D080224684FFC008E561A /* Utils */,
 				5BA9D0242467011C005F8A6E /* LaunchScreen.storyboard */,
 				5BA9D0222467011C005F8A6E /* Assets.xcassets */,
 				5BA9D0272467011C005F8A6E /* Info.plist */,
@@ -394,6 +405,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B7D07D524675E00008E561A /* SearchVMImplementation.swift in Sources */,
+				5B7D08042468503C008E561A /* OsLogExtension.swift in Sources */,
 				5B7D07C924674E3E008E561A /* Coordinator.swift in Sources */,
 				5B7D07FF2467A03F008E561A /* ItemModelImplementation.swift in Sources */,
 				5BA9D01E2467011B005F8A6E /* SearchVC.swift in Sources */,

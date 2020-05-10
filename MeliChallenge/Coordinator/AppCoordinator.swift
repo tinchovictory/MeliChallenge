@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class AppCoordinator: Coordinator {
     
@@ -21,10 +22,12 @@ class AppCoordinator: Coordinator {
     }
     
     func start() {
+        os_log("AppCoordinator: start()", log: OSLog.navigation, type: .debug)
         showSearch()
     }
 
     func dismiss() {
+        os_log("AppCoordinator: dismiss(): App coordinator shouldn't be dissmised", log: OSLog.navigation, type: .error)
         fatalError("Initial coordinator can't be dismised")
     }
 }

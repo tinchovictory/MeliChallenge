@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 protocol ItemCoordinatorDelegate: class {
     func itemCoordinatorDidFinish(itemCoordinator: ItemCoordinator)
@@ -34,16 +35,19 @@ class ItemCoordinator: Coordinator {
         itemVC.viewModel = viewModel
         
         self.router.push(itemVC, isAnimated: true, withCoordinator: self)
+        os_log("ItemCoordinator: start()", log: OSLog.navigation, type: .debug)
     }
     
     func dismiss() {
         // inform parent this coordinator is leaving
         self.delegate?.itemCoordinatorDidFinish(itemCoordinator: self)
+        os_log("ItemCoordinator: dismiss()", log: OSLog.navigation, type: .debug)
     }
 }
 
 extension ItemCoordinator: ItemVMCoordinatorDelegate {
     func itemDidFinish(viewModel: ItemVM) {
+        os_log("ItemCoordinator: itemDidFinish()", log: OSLog.navigation, type: .debug)
         router.pop(isAnimated: true)
     }
 }

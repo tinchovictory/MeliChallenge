@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class RouterImplementation: NSObject, Router {
     let navigationController: UINavigationController
@@ -28,7 +29,7 @@ class RouterImplementation: NSObject, Router {
         navigationController.popViewController(animated: isAnimated)
         coordinators.last?.dismiss()
         coordinators.removeLast()
-        print("manual coordinator dismiss")
+        os_log("Router: pop(): manual coordinator dismiss", log: OSLog.navigation, type: .debug)
     }
 }
 
@@ -45,6 +46,6 @@ extension RouterImplementation: UINavigationControllerDelegate {
         
         coordinators.last?.dismiss()
         coordinators.removeLast()
-        print("automatic coordinator dismiss")
+        os_log("Router: navigationController(): automatic coordinator dismiss", log: OSLog.navigation, type: .debug)
     }
 }

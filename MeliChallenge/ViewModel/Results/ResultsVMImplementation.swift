@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import os.log
 
 class ResultsVMImplementation: ResultsVM {
     weak var viewDelegate: ResultsVMViewDelegate?
@@ -36,6 +37,7 @@ class ResultsVMImplementation: ResultsVM {
     }
     
     func selectItemAt(index: Int) {
+        os_log("ResultsVMImplementation: selectItemAt(): index=%{PUBLIC}@", log: OSLog.buisnessLogic, type: .debug, String(index))
         if let item = itemAt(index: index) {
             coordinatorDelegate?.resultsDidSelectItem(viewModel: self, item: item)
         }

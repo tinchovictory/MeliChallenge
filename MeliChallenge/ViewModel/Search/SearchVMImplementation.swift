@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import os.log
 
 class SearchVMImplementation: SearchVM {
     // keep track of the coorinator in order to end the current screen
@@ -16,8 +17,7 @@ class SearchVMImplementation: SearchVM {
     var search = ""
 
     func submit() {
-        print("Submit with word \(search)")
-
+        os_log("SearchVMImplementation: submit(): search=%{PUBLC}@", log: OSLog.buisnessLogic, type: .debug, search)
         self.coordinatorDelegate?.searchVMDidFinish(viewModel: self)
     }
 }

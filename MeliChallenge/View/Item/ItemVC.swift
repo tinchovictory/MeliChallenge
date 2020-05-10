@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class ItemVC: UIViewController {
     var viewModel: ItemVM? {
@@ -16,23 +17,21 @@ class ItemVC: UIViewController {
     }
     
     override func viewDidLoad() {
-        print("view loaded")
+    
     }
     
     override func loadView() {
         self.view = UIView()
         self.view.backgroundColor = .white
-        
-        print("view loading")
     }
 }
 
 extension ItemVC: ItemVMViewDelegate {
     func itemDidUpdate(viewModel: ItemVM) {
-        print("item updated \(viewModel.item?.id ?? "") \(viewModel.item?.title ?? "")")
+        os_log("ItemVC: itemDidUpdate(): itemId=%{PUBLIC}@", log: OSLog.view, type: .debug, viewModel.item?.id ?? "")
     }
     
     func loadDidFail(viewModel: ItemVM) {
-        print("item failed to load")
+        os_log("ItemVC: loadDidFail()", log: OSLog.view, type: .debug)
     }
 }

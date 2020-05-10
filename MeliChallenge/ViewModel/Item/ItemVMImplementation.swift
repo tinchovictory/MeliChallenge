@@ -15,14 +15,12 @@ class ItemVMImplementation: ItemVM {
     // load item on model initialization
     var model: ItemModel? {
         didSet {
-            print("seting item model")
             model?.item { self.item = $0 }
         }
     }
     
     var item: Item? {
         didSet {
-            print("item model finished")
             viewDelegate?.itemDidUpdate(viewModel: self)
         }
     }
