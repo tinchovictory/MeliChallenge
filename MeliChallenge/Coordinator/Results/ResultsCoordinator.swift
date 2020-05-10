@@ -16,6 +16,7 @@ class ResultsCoordinator: Coordinator {
     
     private let navigationController: UINavigationController
     private let searchWord: String
+    private var childCoordinator: Coordinator?
     weak var delegate: ResultsCoordinatorDelegate?
     
     init(navigationController: UINavigationController, searchWord: String) {
@@ -42,6 +43,12 @@ extension ResultsCoordinator: ResultsVMCoordinatorDelegate {
     func resultsDidSelectItem(viewModel: ResultsVM, item: ResultItem) {
         // move to item screen
         print("item \(item.id) selected, moving to item screen")
+        
+        let itemCoordinator = ItemCoordinator(navigationController: self.navigationController, itemId: item.id)
+        itemCoordinator.delegate = self
+        self.childCoordinator = itemCoordinator
+
+        itemCoordinator.start()
     }
     
     func resultsStopSearching(viewModel: ResultsVM) {
@@ -49,4 +56,11 @@ extension ResultsCoordinator: ResultsVMCoordinatorDelegate {
         delegate?.resultsCoordinatorDidFinish(resultsCoordinator: self)
     }
 
+}
+
+extension ResultsCoordinator: ItemCoordinatorDelegate {
+    func itemCoordinatorDidFinish(itemCoordinator: ItemCoordinator) {
+        self.childCoordinator = nil
+        self.navigationController.popViewController(animated: true)
+    }
 }
