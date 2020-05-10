@@ -15,22 +15,61 @@ class ResultsVC: UIViewController {
             viewModel?.viewDelegate = self
         }
     }
+    
+    private var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "resultCell")
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
     }
     
     override func loadView() {
         self.view = UIView()
         self.view.backgroundColor = .white
+        
+        self.tableView = UITableView()
+        self.tableView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(self.tableView)
+        
+        NSLayoutConstraint.activate([
+            self.tableView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            self.tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor),
+            self.tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            self.tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+        ])
     }
 
+}
+
+extension ResultsVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.viewModel?.selectItemAt(index: indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension ResultsVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.viewModel?.numberOfItems ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "resultCell", for: indexPath)
+        
+        if let item = viewModel?.itemAt(index: indexPath.row) {
+            cell.textLabel?.text = item.title
+        }
+        
+        return cell
+    }
 }
 
 extension ResultsVC: ResultsVMViewDelegate {
     func resultsDidUpdate(viewModel: ResultsVM) {
         // reload table
+        self.tableView.reloadData()
     }
 }

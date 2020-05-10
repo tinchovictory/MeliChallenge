@@ -41,6 +41,7 @@ class ResultsCoordinator: Coordinator {
 extension ResultsCoordinator: ResultsVMCoordinatorDelegate {
     func resultsDidSelectItem(viewModel: ResultsVM, item: ResultItem) {
         // move to item screen
+        print("item \(item.id) selected, moving to item screen")
     }
     
     func resultsStopSearching(viewModel: ResultsVM) {
