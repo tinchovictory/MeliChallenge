@@ -8,9 +8,7 @@
 
 import UIKit
 
-typealias NavigationBackClosure = (() -> ())
-
 protocol Router: class {
-    func push(_ vc: UIViewController, isAnimated: Bool, onNavigateBack: NavigationBackClosure)
+    func push(_ vc: UIViewController, isAnimated: Bool, withCoordinator: Coordinator)
     func pop(isAnimated: Bool)
 }

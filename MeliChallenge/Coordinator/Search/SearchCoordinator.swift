@@ -14,12 +14,12 @@ protocol SearchCoordinatorDelegate: class {
 
 class SearchCoordinator: Coordinator {
     
-    private let navigationController: UINavigationController
+    private let router: Router
     private var childCoordinator: Coordinator?
     weak var delegate: SearchCoordinatorDelegate?
     
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    init(router: Router) {
+        self.router = router
     }
     
     func start() {
@@ -29,7 +29,11 @@ class SearchCoordinator: Coordinator {
 
         searchViewController.viewModel = viewModel
         
-        self.navigationController.pushViewController(searchViewController, animated: false)
+        router.push(searchViewController, isAnimated: false, withCoordinator: self)
+    }
+    
+    func dismiss() {
+        // search screen shouldnt be dissmised
     }
 }
 
@@ -38,7 +42,7 @@ extension SearchCoordinator: SearchVMCoordinatorDelegate {
         // I have the search word go to display the results
         print("go to results with word \(viewModel.search)")
         
-        let resultsCoordinator = ResultsCoordinator(navigationController: self.navigationController, searchWord: viewModel.search)
+        let resultsCoordinator = ResultsCoordinator(router: self.router, searchWord: viewModel.search)
         resultsCoordinator.delegate = self
         self.childCoordinator = resultsCoordinator
         
@@ -49,6 +53,5 @@ extension SearchCoordinator: SearchVMCoordinatorDelegate {
 extension SearchCoordinator: ResultsCoordinatorDelegate {
     func resultsCoordinatorDidFinish(resultsCoordinator: ResultsCoordinator) {
         self.childCoordinator = nil
-        self.navigationController.popViewController(animated: true)
     }
 }

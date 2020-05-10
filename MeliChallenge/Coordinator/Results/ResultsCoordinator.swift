@@ -14,13 +14,13 @@ protocol ResultsCoordinatorDelegate: class {
 
 class ResultsCoordinator: Coordinator {
     
-    private let navigationController: UINavigationController
+    private let router: Router
     private let searchWord: String
     private var childCoordinator: Coordinator?
     weak var delegate: ResultsCoordinatorDelegate?
     
-    init(navigationController: UINavigationController, searchWord: String) {
-        self.navigationController = navigationController
+    init(router: Router, searchWord: String) {
+        self.router = router
         self.searchWord = searchWord
     }
     
@@ -35,7 +35,12 @@ class ResultsCoordinator: Coordinator {
 
         resultsVC.viewModel = viewModel
         
-        self.navigationController.pushViewController(resultsVC, animated: true)
+        self.router.push(resultsVC, isAnimated: true, withCoordinator: self)
+    }
+   
+    func dismiss() {
+        // inform parent this coordinator is leaving
+        delegate?.resultsCoordinatorDidFinish(resultsCoordinator: self)
     }
 }
 
@@ -44,7 +49,7 @@ extension ResultsCoordinator: ResultsVMCoordinatorDelegate {
         // move to item screen
         print("item \(item.id) selected, moving to item screen")
         
-        let itemCoordinator = ItemCoordinator(navigationController: self.navigationController, itemId: item.id)
+        let itemCoordinator = ItemCoordinator(router: self.router, itemId: item.id)
         itemCoordinator.delegate = self
         self.childCoordinator = itemCoordinator
 
@@ -53,14 +58,12 @@ extension ResultsCoordinator: ResultsVMCoordinatorDelegate {
     
     func resultsStopSearching(viewModel: ResultsVM) {
         // go back to the previous screen
-        delegate?.resultsCoordinatorDidFinish(resultsCoordinator: self)
+        router.pop(isAnimated: true)
     }
-
 }
 
 extension ResultsCoordinator: ItemCoordinatorDelegate {
     func itemCoordinatorDidFinish(itemCoordinator: ItemCoordinator) {
         self.childCoordinator = nil
-        self.navigationController.popViewController(animated: true)
     }
 }

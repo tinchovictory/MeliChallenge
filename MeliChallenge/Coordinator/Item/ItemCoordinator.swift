@@ -14,12 +14,12 @@ protocol ItemCoordinatorDelegate: class {
 
 class ItemCoordinator: Coordinator {
     
-    private let navigationController: UINavigationController
+    private let router: Router
     private let itemId: String
     weak var delegate: ItemCoordinatorDelegate?
 
-    init(navigationController: UINavigationController, itemId: String) {
-        self.navigationController = navigationController
+    init(router: Router, itemId: String) {
+        self.router = router
         self.itemId = itemId
     }
     
@@ -33,12 +33,17 @@ class ItemCoordinator: Coordinator {
         
         itemVC.viewModel = viewModel
         
-        self.navigationController.pushViewController(itemVC, animated: true)
+        self.router.push(itemVC, isAnimated: true, withCoordinator: self)
+    }
+    
+    func dismiss() {
+        // inform parent this coordinator is leaving
+        self.delegate?.itemCoordinatorDidFinish(itemCoordinator: self)
     }
 }
 
 extension ItemCoordinator: ItemVMCoordinatorDelegate {
     func itemDidFinish(viewModel: ItemVM) {
-        self.delegate?.itemCoordinatorDidFinish(itemCoordinator: self)
+        router.pop(isAnimated: true)
     }
 }
