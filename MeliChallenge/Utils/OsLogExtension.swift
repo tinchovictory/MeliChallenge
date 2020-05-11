@@ -15,4 +15,5 @@ extension OSLog {
     static let navigation = OSLog(subsystem: subsystem, category: "navigation")
     static let buisnessLogic = OSLog(subsystem: subsystem, category: "buisnessLogic")
     static let view = OSLog(subsystem: subsystem, category: "view")
+    static let network = OSLog(subsystem: subsystem, category: "network")
 }
