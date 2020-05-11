@@ -16,7 +16,17 @@ class ResultsVMImplementation: ResultsVM {
     // load the results on model initialization and save them on the items array
     var model: ResultsList? {
         didSet {
-            model?.results { self.items = $0 }
+            model?.results { [weak self] response in
+                guard let self = self else { return }
+                
+                switch response {
+                case .failure:
+                    // send error to view
+                    os_log("ResultsVMImplementation: model: api error", log: OSLog.buisnessLogic, type: .debug)
+                case .success(let apiSearchResults):
+                    self.items = apiSearchResults.map { ResultItemImplementation(apiSearchResult: $0) }
+                }
+            }
         }
     }
     

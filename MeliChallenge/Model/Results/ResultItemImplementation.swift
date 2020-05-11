@@ -12,5 +12,12 @@ struct ResultItemImplementation: ResultItem {
     let id: String
     let title: String
     let price: Float
-    let thumbnail: String
+    let thumbnail: Data?
+    
+    init(apiSearchResult: APISearchResult) {
+        self.id = apiSearchResult.id
+        self.title = apiSearchResult.title
+        self.price = apiSearchResult.price
+        self.thumbnail = apiSearchResult.thumbnailData
+    }
 }

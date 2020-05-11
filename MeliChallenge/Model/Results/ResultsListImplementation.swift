@@ -7,32 +7,44 @@
 //
 
 import Foundation
+import os.log
 
 class ResultsListImplementation: ResultsList {
-    private var items: [ResultItem]
-    private var searchWord: String
+    private var items: [APISearchResult]
+    private let searchWord: String
+    private let networkManager: NetworkManager
    
     // Initialize with the search key word and inject API Service
-    init(searchWord: String) {
+    init(searchWord: String, networkManager: NetworkManager) {
         self.searchWord = searchWord
-        items = [ResultItem]()
+        self.networkManager = networkManager
+        items = [APISearchResult]()
     }
     
-    func results(_ completitionHandler: @escaping ([ResultItem]) -> Void) {
-        // go load items from the api
-        loadItems(q: searchWord)
-        completitionHandler(self.items)
-    }
-    
-    private func loadItems(q: String) {
-        items.append(ResultItemImplementation(id: "1", title: "Result1", price: 1000, thumbnail: "url"))
-        items.append(ResultItemImplementation(id: "2", title: "Result2", price: 2000, thumbnail: "url"))
-        items.append(ResultItemImplementation(id: "3", title: "Result3", price: 3000, thumbnail: "url"))
-        items.append(ResultItemImplementation(id: "4", title: "Result4", price: 4000, thumbnail: "url"))
-        items.append(ResultItemImplementation(id: "5", title: "Result5", price: 5000, thumbnail: "url"))
-        items.append(ResultItemImplementation(id: "6", title: "Result6", price: 6000, thumbnail: "url"))
-        items.append(ResultItemImplementation(id: "7", title: "Result7", price: 7000, thumbnail: "url"))
-        items.append(ResultItemImplementation(id: "8", title: "Result8", price: 8000, thumbnail: "url"))
-        items.append(ResultItemImplementation(id: "9", title: "Result9", price: 9000, thumbnail: "url"))
+    func results(_ completitionHandler: @escaping (Result<[APISearchResult], APIError>) -> Void) {
+        DispatchQueue.global(qos: .utility).async { [weak self] in
+            guard let self = self else {
+                completitionHandler(.failure(APIError.defaultError))
+                return
+            }
+
+            // items response
+            self.networkManager.getSearchResults(q: self.searchWord) { response in
+                os_log("ResultsListImplementation: results(): Network manager finished get serarch results", log: OSLog.network, type: .debug)
+
+                switch response {
+                case .failure(let err):
+                    DispatchQueue.main.async {
+                        completitionHandler(.failure(err))
+                    }
+                case .success(let apiSearchResults):
+                    DispatchQueue.main.async {
+                        // save the items
+                        self.items = apiSearchResults
+                        completitionHandler(.success(self.items))
+                    }
+                }
+            }
+        }
     }
 }

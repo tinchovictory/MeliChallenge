@@ -25,7 +25,7 @@ class ResultsCoordinator: Coordinator {
     }
     
     func start() {
-        let model = ResultsListImplementation(searchWord: self.searchWord)
+        let model = ResultsListImplementation(searchWord: self.searchWord, networkManager: NetworkManagerImplementation())
         
         let viewModel = ResultsVMImplementation()
         viewModel.coordinatorDelegate = self

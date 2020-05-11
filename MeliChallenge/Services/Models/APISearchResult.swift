@@ -13,4 +13,5 @@ struct APISearchResult: Decodable {
     let title: String
     let price: Float
     let thumbnail: String
+    var thumbnailData: Data?
 }

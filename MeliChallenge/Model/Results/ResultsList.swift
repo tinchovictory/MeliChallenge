@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ResultsList: class {
-    func results(_ completitionHandler: @escaping (_ items: [ResultItem]) -> Void)
+    func results(_ completitionHandler: @escaping (_ items: Result<[APISearchResult], APIError>) -> Void)
 }
