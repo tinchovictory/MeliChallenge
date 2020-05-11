@@ -10,6 +10,7 @@ import Foundation
 
 protocol ResultsVMViewDelegate: class {
     func resultsDidUpdate(viewModel: ResultsVM)
+    func restulsDidError(viewModel: ResultsVM)
 }
 
 protocol ResultsVMCoordinatorDelegate: class {

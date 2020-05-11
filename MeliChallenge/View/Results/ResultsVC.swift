@@ -72,4 +72,8 @@ extension ResultsVC: ResultsVMViewDelegate {
         // reload table
         self.tableView.reloadData()
     }
+
+    func restulsDidError(viewModel: ResultsVM) {
+        // show error msg
+    }
 }

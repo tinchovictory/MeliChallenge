@@ -21,7 +21,7 @@ class ResultsVMImplementation: ResultsVM {
                 
                 switch response {
                 case .failure:
-                    // send error to view
+                    self.viewDelegate?.restulsDidError(viewModel: self)
                     os_log("ResultsVMImplementation: model: api error", log: OSLog.buisnessLogic, type: .debug)
                 case .success(let apiSearchResults):
                     self.items = apiSearchResults.map { ResultItemImplementation(apiSearchResult: $0) }
