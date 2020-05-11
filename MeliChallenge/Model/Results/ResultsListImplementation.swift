@@ -24,7 +24,9 @@ class ResultsListImplementation: ResultsList {
     func results(_ completitionHandler: @escaping (Result<[APISearchResult], APIError>) -> Void) {
         DispatchQueue.global(qos: .utility).async { [weak self] in
             guard let self = self else {
-                completitionHandler(.failure(APIError.defaultError))
+                DispatchQueue.main.async {
+                    completitionHandler(.failure(APIError.defaultError))
+                }
                 return
             }
 
@@ -38,19 +40,17 @@ class ResultsListImplementation: ResultsList {
                         completitionHandler(.failure(err))
                     }
                 case .success(let apiSearchResults):
-                    DispatchQueue.main.async {
-                        // save the items
-                        self.items = apiSearchResults
-                       
-                        // load thumbnails
-                        let group = DispatchGroup()
-                        self.loadThumbnails(group: group)
-                        
-                        // wait for every thumbnail
-                        group.notify(queue: .main) {
-                            os_log("ResultsListImplementation: results(): Finished loading thumbnails", log: OSLog.network, type: .debug)
-                            completitionHandler(.success(self.items))
-                        }
+                    // save the items
+                    self.items = apiSearchResults
+
+                    // load thumbnails
+                    let group = DispatchGroup()
+                    self.loadThumbnails(group: group)
+
+                    // wait for every thumbnail
+                    group.notify(queue: .main) {
+                        os_log("ResultsListImplementation: results(): Finished loading thumbnails", log: OSLog.network, type: .debug)
+                        completitionHandler(.success(self.items))
                     }
                 }
             }

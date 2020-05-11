@@ -23,7 +23,9 @@ class ItemModelImplementation: ItemModel {
         // go look item from the api
         DispatchQueue.global(qos: .utility).async { [weak self] in
             guard let self = self else {
-                completitionHandler(.failure(APIError.defaultError))
+                DispatchQueue.main.async {
+                    completitionHandler(.failure(APIError.defaultError))
+                }
                 return
             }
             
