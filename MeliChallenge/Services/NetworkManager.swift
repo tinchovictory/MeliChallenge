@@ -10,4 +10,6 @@ import Foundation
 
 protocol NetworkManager: class {
     func getSearchResults(q: String, completition: @escaping (Result<[APISearchResult], APIError>) -> Void)
+
+    func getImage(url: String, completition: @escaping (Result<Data, APIError>) -> Void)
 }

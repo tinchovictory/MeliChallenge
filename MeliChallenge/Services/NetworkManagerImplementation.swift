@@ -8,6 +8,8 @@
 
 import Foundation
 import Moya
+import Alamofire
+import AlamofireImage
 import os.log
 
 class NetworkManagerImplementation: NetworkManager {
@@ -27,6 +29,19 @@ class NetworkManagerImplementation: NetworkManager {
                     os_log("NetworkManagerImplementation: getSearchResults(): %{PUBLIC}@", log: OSLog.network, type: .error, error as CVarArg)
                     completition(.failure(.parsingError))
                 }
+            }
+        }
+    }
+
+    func getImage(url: String, completition: @escaping (Result<Data, APIError>) -> Void) {
+        AF.request(url).responseImage { response in
+            if let data = response.data {
+                completition(.success(data))
+            } else {
+                if let error = response.error {
+                    os_log("NetworkManagerImplementation: getImage(): %{PUBLIC}@", log: OSLog.network, type: .error, error as CVarArg)
+                }
+                completition(.failure(.connectionError))
             }
         }
     }

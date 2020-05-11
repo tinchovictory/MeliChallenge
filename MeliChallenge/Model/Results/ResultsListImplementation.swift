@@ -41,9 +41,34 @@ class ResultsListImplementation: ResultsList {
                     DispatchQueue.main.async {
                         // save the items
                         self.items = apiSearchResults
-                        completitionHandler(.success(self.items))
+                       
+                        // load thumbnails
+                        let group = DispatchGroup()
+                        self.loadThumbnails(group: group)
+                        
+                        // wait for every thumbnail
+                        group.notify(queue: .main) {
+                            os_log("ResultsListImplementation: results(): Finished loading thumbnails", log: OSLog.network, type: .debug)
+                            completitionHandler(.success(self.items))
+                        }
                     }
                 }
+            }
+        }
+    }
+    
+    
+    private func loadThumbnails(group: DispatchGroup) {
+        for i in 0 ..< self.items.count {
+            group.enter()
+            self.networkManager.getImage(url: self.items[i].thumbnail) { response in
+                switch response {
+                case .failure:
+                    os_log("ResultsListImplementation: loadThumbnails(): Unable to download thumbnail", log: OSLog.network, type: .error)
+                case .success(let image):
+                    self.items[i].thumbnailData = image
+                }
+                group.leave()
             }
         }
     }

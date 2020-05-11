@@ -7,6 +7,7 @@ target 'MeliChallenge' do
 
   # Pods for MeliChallenge
   pod 'Moya', '~> 14.0'
+  pod 'AlamofireImage', '~> 4.1'
 
   target 'MeliChallengeTests' do
     inherit! :search_paths
