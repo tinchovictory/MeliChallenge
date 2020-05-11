@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5B2EBCD22469C95A00F8EAC1 /* APIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBCD12469C95A00F8EAC1 /* APIItem.swift */; };
 		5B2EBCD42469C96400F8EAC1 /* APIItemDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBCD32469C96400F8EAC1 /* APIItemDescription.swift */; };
+		5B2EBCD62469D75000F8EAC1 /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBCD52469D75000F8EAC1 /* UIColorExt.swift */; };
+		5B2EBCD92469DAF200F8EAC1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBCD82469DAF200F8EAC1 /* BaseViewController.swift */; };
 		5B7D07C924674E3E008E561A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07C824674E3E008E561A /* Coordinator.swift */; };
 		5B7D07CB24674EA2008E561A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07CA24674EA2008E561A /* AppCoordinator.swift */; };
 		5B7D07CD24674F65008E561A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07CC24674F65008E561A /* Router.swift */; };
@@ -65,6 +67,8 @@
 		53B195EC66BD4594E182BB7C /* Pods-MeliChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeliChallengeTests.release.xcconfig"; path = "Target Support Files/Pods-MeliChallengeTests/Pods-MeliChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
 		5B2EBCD12469C95A00F8EAC1 /* APIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIItem.swift; sourceTree = "<group>"; };
 		5B2EBCD32469C96400F8EAC1 /* APIItemDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIItemDescription.swift; sourceTree = "<group>"; };
+		5B2EBCD52469D75000F8EAC1 /* UIColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
+		5B2EBCD82469DAF200F8EAC1 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		5B7D07C824674E3E008E561A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		5B7D07CA24674EA2008E561A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		5B7D07CC24674F65008E561A /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -150,9 +154,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5B2EBCD72469DADF00F8EAC1 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				5B2EBCD82469DAF200F8EAC1 /* BaseViewController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		5B7D07C324674DAF008E561A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5B2EBCD72469DADF00F8EAC1 /* UI */,
 				5B7D07D8246763A8008E561A /* Search */,
 				5B7D07DB24676D95008E561A /* Results */,
 				5B7D07F1246797E6008E561A /* Item */,
@@ -303,6 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				5B7D08032468503C008E561A /* OsLogExtension.swift */,
+				5B2EBCD52469D75000F8EAC1 /* UIColorExt.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -554,8 +568,10 @@
 				5B7D07D3246759EF008E561A /* SearchVM.swift in Sources */,
 				5B7D07FB24679C6D008E561A /* Item.swift in Sources */,
 				5BA9D01A2467011B005F8A6E /* AppDelegate.swift in Sources */,
+				5B2EBCD92469DAF200F8EAC1 /* BaseViewController.swift in Sources */,
 				5B7D07F32467981F008E561A /* ItemCoordinator.swift in Sources */,
 				5B7D07E72467760E008E561A /* ResultItem.swift in Sources */,
+				5B2EBCD62469D75000F8EAC1 /* UIColorExt.swift in Sources */,
 				5B7D07EB24677A02008E561A /* ResultsList.swift in Sources */,
 				5B7D07D124675539008E561A /* SearchCoordinator.swift in Sources */,
 				5B7D084E2469B148008E561A /* NetworkManager.swift in Sources */,

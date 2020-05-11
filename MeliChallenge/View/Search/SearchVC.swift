@@ -8,16 +8,10 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: BaseViewController {
     
-    let searchBar = UISearchBar()
-    
-    var viewModel: SearchVM?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
+    private let searchBar = UISearchBar()
+    private var viewModel: SearchVM?
 
     override func loadView() {
         self.view = UIView()
@@ -25,7 +19,6 @@ class SearchViewController: UIViewController {
         
         navigationItem.titleView = searchBar
         searchBar.delegate = self
-        
         searchBar.sizeToFit()
     }
 }
@@ -37,5 +30,15 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         viewModel?.submit()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = nil
+        searchBar.resignFirstResponder()
     }
 }
