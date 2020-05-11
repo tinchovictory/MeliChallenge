@@ -46,4 +46,39 @@ class NetworkManagerImplementation: NetworkManager {
         }
     }
     
+    func getItem(withId id: String, completition: @escaping (Result<APIItem, APIError>) -> Void) {
+        provider.request(.item(id: id)) { result in
+            switch result {
+            case let .failure(error):
+                os_log("NetworkManagerImplementation: getItem(): %{PUBLIC}@", log: OSLog.network, type: .error, error as CVarArg)
+                completition(.failure(.connectionError))
+            case let .success(response):
+                do {
+                    let item = try JSONDecoder().decode(APIItem.self, from: response.data)
+                    completition(.success(item))
+                } catch {
+                    os_log("NetworkManagerImplementation: getItem(): %{PUBLIC}@", log: OSLog.network, type: .error, error as CVarArg)
+                    completition(.failure(.parsingError))
+                }
+            }
+        }
+    }
+    
+    func getItemDescription(withId id: String, completition: @escaping (Result<APIItemDescription?, APIError>) -> Void) {
+        provider.request(.itemDescription(id: id)) { result in
+            switch result {
+            case let .failure(error):
+                os_log("NetworkManagerImplementation: getItemDescription(): %{PUBLIC}@", log: OSLog.network, type: .error, error as CVarArg)
+                completition(.failure(.connectionError))
+            case let .success(response):
+                do {
+                    let descriptions = try JSONDecoder().decode([APIItemDescription].self, from: response.data)
+                    completition(.success(descriptions.first))
+                } catch {
+                    os_log("NetworkManagerImplementation: getItemDescription(): %{PUBLIC}@", log: OSLog.network, type: .error, error as CVarArg)
+                    completition(.failure(.parsingError))
+                }
+            }
+        }
+    }
 }

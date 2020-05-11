@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct ItemImplementation: Item {
     let id: String
@@ -14,6 +15,21 @@ struct ItemImplementation: Item {
     let price: Float
     let condition: String
     let quantity: Int
-    let picture: String
-    let description: String
+    let picture: UIImage?
+    let description: String?
+    
+    init(apiItem: APIItem) {
+        self.id = apiItem.id
+        self.title = apiItem.title
+        self.price = apiItem.price
+        self.condition = apiItem.condition
+        self.quantity = apiItem.quantity
+        self.description = apiItem.description?.text
+        
+        if let imageData = apiItem.pictureData {
+            self.picture = UIImage(data: imageData)
+        } else {
+            self.picture = nil
+        }
+    }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B2EBCD22469C95A00F8EAC1 /* APIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBCD12469C95A00F8EAC1 /* APIItem.swift */; };
+		5B2EBCD42469C96400F8EAC1 /* APIItemDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBCD32469C96400F8EAC1 /* APIItemDescription.swift */; };
 		5B7D07C924674E3E008E561A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07C824674E3E008E561A /* Coordinator.swift */; };
 		5B7D07CB24674EA2008E561A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07CA24674EA2008E561A /* AppCoordinator.swift */; };
 		5B7D07CD24674F65008E561A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07CC24674F65008E561A /* Router.swift */; };
@@ -61,6 +63,8 @@
 		11B8526C9F67D2476101D4D0 /* Pods-MeliChallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeliChallengeTests.debug.xcconfig"; path = "Target Support Files/Pods-MeliChallengeTests/Pods-MeliChallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1D41588AF9C6B6B3BEC6D7A7 /* Pods-MeliChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeliChallenge.release.xcconfig"; path = "Target Support Files/Pods-MeliChallenge/Pods-MeliChallenge.release.xcconfig"; sourceTree = "<group>"; };
 		53B195EC66BD4594E182BB7C /* Pods-MeliChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeliChallengeTests.release.xcconfig"; path = "Target Support Files/Pods-MeliChallengeTests/Pods-MeliChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
+		5B2EBCD12469C95A00F8EAC1 /* APIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIItem.swift; sourceTree = "<group>"; };
+		5B2EBCD32469C96400F8EAC1 /* APIItemDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIItemDescription.swift; sourceTree = "<group>"; };
 		5B7D07C824674E3E008E561A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		5B7D07CA24674EA2008E561A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		5B7D07CC24674F65008E561A /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -320,6 +324,8 @@
 				5B7D08522469B169008E561A /* APISearch.swift */,
 				5B7D08542469B175008E561A /* APISearchResult.swift */,
 				5B7D08562469B1D7008E561A /* APIError.swift */,
+				5B2EBCD12469C95A00F8EAC1 /* APIItem.swift */,
+				5B2EBCD32469C96400F8EAC1 /* APIItemDescription.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -542,6 +548,7 @@
 				5B7D07C924674E3E008E561A /* Coordinator.swift in Sources */,
 				5B7D07FF2467A03F008E561A /* ItemModelImplementation.swift in Sources */,
 				5BA9D01E2467011B005F8A6E /* SearchVC.swift in Sources */,
+				5B2EBCD22469C95A00F8EAC1 /* APIItem.swift in Sources */,
 				5B7D07CB24674EA2008E561A /* AppCoordinator.swift in Sources */,
 				5B7D07F924679BFE008E561A /* ItemModel.swift in Sources */,
 				5B7D07D3246759EF008E561A /* SearchVM.swift in Sources */,
@@ -568,6 +575,7 @@
 				5B7D07E9246776E0008E561A /* ResultItemImplementation.swift in Sources */,
 				5B7D07E124676E4A008E561A /* ResultsVM.swift in Sources */,
 				5B7D07F524679A62008E561A /* ItemVC.swift in Sources */,
+				5B2EBCD42469C96400F8EAC1 /* APIItemDescription.swift in Sources */,
 				5B7D08552469B175008E561A /* APISearchResult.swift in Sources */,
 				5B7D08572469B1D7008E561A /* APIError.swift in Sources */,
 			);

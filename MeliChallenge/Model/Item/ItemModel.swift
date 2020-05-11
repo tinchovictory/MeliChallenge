@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ItemModel: class {
-    func item(_ completitionHandler: @escaping (_ item: Item) -> Void)
+    func item(_ completitionHandler: @escaping (_ item: Result<APIItem, APIError>) -> Void)
 }

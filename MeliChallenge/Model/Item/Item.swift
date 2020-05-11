@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol Item {
     var id: String { get }
@@ -14,6 +15,6 @@ protocol Item {
     var price: Float { get }
     var condition: String { get }
     var quantity: Int { get }
-    var picture: String { get }
-    var description: String { get }
+    var picture: UIImage? { get }
+    var description: String? { get }
 }

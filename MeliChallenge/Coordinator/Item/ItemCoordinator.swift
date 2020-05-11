@@ -26,7 +26,7 @@ class ItemCoordinator: Coordinator {
     
     func start() {
         let itemVC = ItemVC()
-        let model = ItemModelImplementation(itemId: self.itemId)
+        let model = ItemModelImplementation(itemId: self.itemId, networkManager: NetworkManagerImplementation())
         
         let viewModel = ItemVMImplementation()
         viewModel.coordinatorDelegate = self

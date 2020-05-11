@@ -12,8 +12,11 @@ import Moya
 enum MeliAPI {
     private static let baseUrl = "https://api.mercadolibre.com/"
     private static let searchPath = "sites/MLA/search"
+    private static let itemPath = "items/"
 
     case search(q: String)
+    case item(id: String)
+    case itemDescription(id: String)
 }
 
 extension MeliAPI: TargetType {
@@ -25,12 +28,14 @@ extension MeliAPI: TargetType {
     var path: String {
         switch self {
         case .search: return MeliAPI.searchPath
+        case .item(id: let id): return MeliAPI.itemPath + id
+        case .itemDescription(id: let id): return MeliAPI.itemPath + id + "/descriptions"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .search: return .get
+        case .search, .item, .itemDescription: return .get
         }
     }
     
@@ -42,6 +47,7 @@ extension MeliAPI: TargetType {
         switch self {
         case .search(let q):
             return .requestParameters(parameters: ["q": q], encoding: URLEncoding.queryString)
+        case .item, .itemDescription: return .requestPlain
         }
     }
     

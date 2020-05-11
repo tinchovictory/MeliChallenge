@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import os.log
 
 class ItemVMImplementation: ItemVM {
     weak var viewDelegate: ItemVMViewDelegate?
@@ -15,7 +16,17 @@ class ItemVMImplementation: ItemVM {
     // load item on model initialization
     var model: ItemModel? {
         didSet {
-            model?.item { self.item = $0 }
+            model?.item { [weak self] response in
+                guard let self = self else { return }
+                
+                switch response {
+                case .failure:
+                    self.viewDelegate?.loadDidFail(viewModel: self)
+                    os_log("ItemVMImplementation: model: api error", log: OSLog.buisnessLogic, type: .debug)
+                case .success(let apiItem):
+                    self.item = ItemImplementation(apiItem: apiItem)
+                }
+            }
         }
     }
     
