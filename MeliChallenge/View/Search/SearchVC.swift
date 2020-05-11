@@ -11,12 +11,12 @@ import UIKit
 class SearchViewController: BaseViewController {
     
     private let searchBar = UISearchBar()
-    private var viewModel: SearchVM?
+    var viewModel: SearchVM?
 
     override func loadView() {
         self.view = UIView()
         self.view.backgroundColor = .white
-        
+
         navigationItem.titleView = searchBar
         searchBar.delegate = self
         searchBar.sizeToFit()

@@ -8,7 +8,11 @@
 
 import UIKit
 
-class ResultsVC: UIViewController {
+fileprivate enum Status {
+    case loading, error, done
+}
+
+class ResultsVC: BaseViewController {
     
     var viewModel: ResultsVM? {
         didSet {
@@ -16,38 +20,32 @@ class ResultsVC: UIViewController {
         }
     }
     
-    private var tableView: UITableView!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "resultCell")
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+    private var tableView: ResultsTableView? {
+        didSet {
+            self.tableView?.delegate = self
+            self.tableView?.dataSource = self
+        }
     }
-    
+    private var status: Status = .loading
+
     override func loadView() {
-        self.view = UIView()
-        self.view.backgroundColor = .white
-        
-        self.tableView = UITableView()
-        self.tableView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(self.tableView)
-        
-        NSLayoutConstraint.activate([
-            self.tableView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            self.tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor),
-            self.tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            self.tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
-        ])
+        self.view = LoadingScreenView()
     }
-
 }
 
 extension ResultsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.viewModel?.selectItemAt(index: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+  
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 150
+        return UITableView.automaticDimension
     }
 }
 
@@ -57,14 +55,10 @@ extension ResultsVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "resultCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: ResultsTableView.cellIdentifier, for: indexPath) as! ResultsTableViewCell
         
         if let item = viewModel?.itemAt(index: indexPath.row) {
-            cell.textLabel?.text = item.title
-            
-            if let image = item.thumbnail {
-                cell.imageView?.image = image
-            }
+            cell.resultItem = item
         }
         
         return cell
@@ -73,11 +67,19 @@ extension ResultsVC: UITableViewDataSource {
 
 extension ResultsVC: ResultsVMViewDelegate {
     func resultsDidUpdate(viewModel: ResultsVM) {
-        // reload table
-        self.tableView.reloadData()
+        if status == .loading {
+            // change loading screen for tableview
+            self.tableView = ResultsTableView()
+            self.view = self.tableView
+            self.status = .done
+        } else {
+            // reload table
+            self.tableView?.reloadData()
+        }
     }
 
     func restulsDidError(viewModel: ResultsVM) {
         // show error msg
+        self.status = .error
     }
 }
