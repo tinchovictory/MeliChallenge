@@ -81,5 +81,6 @@ extension ResultsVC: ResultsVMViewDelegate {
     func restulsDidError(viewModel: ResultsVM) {
         // show error msg
         self.status = .error
+        self.view = ErrorScreenView()
     }
 }

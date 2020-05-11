@@ -23,8 +23,7 @@ class AppCoordinator: Coordinator {
     
     func start() {
         os_log("AppCoordinator: start()", log: OSLog.navigation, type: .debug)
-//        showSearch()
-        ResultsCoordinator(router: router, searchWord: "Motorola").start()
+        showSearch()
     }
 
     func dismiss() {
