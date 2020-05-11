@@ -8,10 +8,6 @@
 
 import UIKit
 
-fileprivate enum Status {
-    case loading, error, done
-}
-
 class ResultsVC: BaseViewController {
     
     var viewModel: ResultsVM? {
@@ -20,16 +16,11 @@ class ResultsVC: BaseViewController {
         }
     }
     
-    private var tableView: ResultsTableView? {
-        didSet {
-            self.tableView?.delegate = self
-            self.tableView?.dataSource = self
-        }
-    }
-    private var status: Status = .loading
+    private var resultsView: ResultsView!
 
     override func loadView() {
-        self.view = LoadingScreenView()
+        self.resultsView = ResultsView()
+        self.view = self.resultsView
     }
 }
 
@@ -37,15 +28,6 @@ extension ResultsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.viewModel?.selectItemAt(index: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-  
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 150
-        return UITableView.automaticDimension
     }
 }
 
@@ -67,20 +49,10 @@ extension ResultsVC: UITableViewDataSource {
 
 extension ResultsVC: ResultsVMViewDelegate {
     func resultsDidUpdate(viewModel: ResultsVM) {
-        if status == .loading {
-            // change loading screen for tableview
-            self.tableView = ResultsTableView()
-            self.view = self.tableView
-            self.status = .done
-        } else {
-            // reload table
-            self.tableView?.reloadData()
-        }
+        self.resultsView.showResultsTable(delegate: self, dataSource: self)
     }
 
     func restulsDidError(viewModel: ResultsVM) {
-        // show error msg
-        self.status = .error
-        self.view = ErrorScreenView()
+        self.resultsView.showError()
     }
 }
