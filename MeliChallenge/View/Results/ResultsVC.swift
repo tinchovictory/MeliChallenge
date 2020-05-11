@@ -61,6 +61,10 @@ extension ResultsVC: UITableViewDataSource {
         
         if let item = viewModel?.itemAt(index: indexPath.row) {
             cell.textLabel?.text = item.title
+            
+            if let image = item.thumbnail {
+                cell.imageView?.image = image
+            }
         }
         
         return cell

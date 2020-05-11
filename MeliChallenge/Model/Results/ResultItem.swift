@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ResultItem {
     var id: String { get }
     var title: String { get }
     var price: Float { get }
-    var thumbnail: Data? { get }
+    var thumbnail: UIImage? { get }
 }
