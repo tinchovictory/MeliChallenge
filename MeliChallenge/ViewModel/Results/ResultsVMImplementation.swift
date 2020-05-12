@@ -9,9 +9,24 @@
 import Foundation
 import os.log
 
+fileprivate enum ModelStatus {
+    case loading, done, error
+}
+
 class ResultsVMImplementation: ResultsVM {
-    weak var viewDelegate: ResultsVMViewDelegate?
+    weak var viewDelegate: ResultsVMViewDelegate? {
+        didSet {
+            if modelStatus == .done {
+                self.viewDelegate?.resultsDidUpdate(viewModel: self)
+            }
+            if modelStatus == .error {
+                self.viewDelegate?.restulsDidError(viewModel: self)
+            }
+        }
+    }
     weak var coordinatorDelegate: ResultsVMCoordinatorDelegate?
+    
+    private var modelStatus: ModelStatus = .loading
 
     // load the results on model initialization and save them on the items array
     var model: ResultsList? {
@@ -21,9 +36,11 @@ class ResultsVMImplementation: ResultsVM {
                 
                 switch response {
                 case .failure:
+                    self.modelStatus = .error
                     self.viewDelegate?.restulsDidError(viewModel: self)
                     os_log("ResultsVMImplementation: model: api error", log: OSLog.buisnessLogic, type: .debug)
                 case .success(let apiSearchResults):
+                    self.modelStatus = .done
                     self.items = apiSearchResults.map { ResultItemImplementation(apiSearchResult: $0) }
                 }
             }

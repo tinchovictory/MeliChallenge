@@ -9,9 +9,24 @@
 import Foundation
 import os.log
 
+fileprivate enum ModelStatus {
+    case loading, done, error
+}
+
 class ItemVMImplementation: ItemVM {
-    weak var viewDelegate: ItemVMViewDelegate?
+    weak var viewDelegate: ItemVMViewDelegate? {
+        didSet {
+            if modelStatus == .done, let item = item {
+                viewDelegate?.itemDidUpdate(viewModel: self, item: item)
+            }
+            if modelStatus == .error {
+                viewDelegate?.loadDidFail(viewModel: self)
+            }
+        }
+    }
     weak var coordinatorDelegate: ItemVMCoordinatorDelegate?
+
+    private var modelStatus: ModelStatus = .loading
    
     // load item on model initialization
     var model: ItemModel? {
@@ -21,9 +36,11 @@ class ItemVMImplementation: ItemVM {
                 
                 switch response {
                 case .failure:
+                    self.modelStatus = .error
                     self.viewDelegate?.loadDidFail(viewModel: self)
                     os_log("ItemVMImplementation: model: api error", log: OSLog.buisnessLogic, type: .debug)
                 case .success(let apiItem):
+                    self.modelStatus = .done
                     self.item = ItemImplementation(apiItem: apiItem)
                 }
             }

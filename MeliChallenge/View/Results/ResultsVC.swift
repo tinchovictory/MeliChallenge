@@ -16,7 +16,7 @@ class ResultsVC: BaseViewController {
         }
     }
     
-    private var resultsView: ResultsView!
+    private var resultsView: ResultsView?
 
     override func loadView() {
         self.resultsView = ResultsView()
@@ -49,10 +49,10 @@ extension ResultsVC: UITableViewDataSource {
 
 extension ResultsVC: ResultsVMViewDelegate {
     func resultsDidUpdate(viewModel: ResultsVM) {
-        self.resultsView.showResultsTable(delegate: self, dataSource: self)
+        self.resultsView?.showResultsTable(delegate: self, dataSource: self)
     }
 
     func restulsDidError(viewModel: ResultsVM) {
-        self.resultsView.showError()
+        self.resultsView?.showError()
     }
 }

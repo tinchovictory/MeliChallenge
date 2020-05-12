@@ -25,6 +25,9 @@
 		5B2EBD01246B17D500F8EAC1 /* ResultsCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBD00246B17D500F8EAC1 /* ResultsCoordinatorTest.swift */; };
 		5B2EBD03246B17E200F8EAC1 /* ItemCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBD02246B17E200F8EAC1 /* ItemCoordinatorTest.swift */; };
 		5B2EBD06246B180F00F8EAC1 /* MockRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBD05246B180F00F8EAC1 /* MockRouter.swift */; };
+		5B2EBD09246B248700F8EAC1 /* SearchVMImplementationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBD08246B248700F8EAC1 /* SearchVMImplementationTest.swift */; };
+		5B2EBD0B246B284400F8EAC1 /* ResultsVMImplementationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBD0A246B284400F8EAC1 /* ResultsVMImplementationTest.swift */; };
+		5B2EBD0D246B35C800F8EAC1 /* ItemVMImplementationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBD0C246B35C800F8EAC1 /* ItemVMImplementationTest.swift */; };
 		5B7D07C924674E3E008E561A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07C824674E3E008E561A /* Coordinator.swift */; };
 		5B7D07CB24674EA2008E561A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07CA24674EA2008E561A /* AppCoordinator.swift */; };
 		5B7D07CD24674F65008E561A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07CC24674F65008E561A /* Router.swift */; };
@@ -60,7 +63,6 @@
 		5BA9D01E2467011B005F8A6E /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA9D01D2467011B005F8A6E /* SearchVC.swift */; };
 		5BA9D0232467011C005F8A6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BA9D0222467011C005F8A6E /* Assets.xcassets */; };
 		5BA9D0262467011C005F8A6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BA9D0242467011C005F8A6E /* LaunchScreen.storyboard */; };
-		5BA9D0312467011C005F8A6E /* MeliChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA9D0302467011C005F8A6E /* MeliChallengeTests.swift */; };
 		9CE35CB20EE3EC4563C18CB5 /* Pods_MeliChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D2E7A70989391891D94A0F /* Pods_MeliChallenge.framework */; };
 		AFCFAFDED119EA6146A3751F /* Pods_MeliChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFA380EF741C83A89C58995B /* Pods_MeliChallengeTests.framework */; };
 /* End PBXBuildFile section */
@@ -97,6 +99,9 @@
 		5B2EBD00246B17D500F8EAC1 /* ResultsCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsCoordinatorTest.swift; sourceTree = "<group>"; };
 		5B2EBD02246B17E200F8EAC1 /* ItemCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCoordinatorTest.swift; sourceTree = "<group>"; };
 		5B2EBD05246B180F00F8EAC1 /* MockRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRouter.swift; sourceTree = "<group>"; };
+		5B2EBD08246B248700F8EAC1 /* SearchVMImplementationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVMImplementationTest.swift; sourceTree = "<group>"; };
+		5B2EBD0A246B284400F8EAC1 /* ResultsVMImplementationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsVMImplementationTest.swift; sourceTree = "<group>"; };
+		5B2EBD0C246B35C800F8EAC1 /* ItemVMImplementationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemVMImplementationTest.swift; sourceTree = "<group>"; };
 		5B7D07C824674E3E008E561A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		5B7D07CA24674EA2008E561A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		5B7D07CC24674F65008E561A /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -135,7 +140,6 @@
 		5BA9D0252467011C005F8A6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BA9D0272467011C005F8A6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BA9D02C2467011C005F8A6E /* MeliChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeliChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5BA9D0302467011C005F8A6E /* MeliChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeliChallengeTests.swift; sourceTree = "<group>"; };
 		5BA9D0322467011C005F8A6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DFA380EF741C83A89C58995B /* Pods_MeliChallengeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeliChallengeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D2E7A70989391891D94A0F /* Pods_MeliChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeliChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,6 +215,16 @@
 				5B2EBD05246B180F00F8EAC1 /* MockRouter.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		5B2EBD07246B246600F8EAC1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5B2EBD08246B248700F8EAC1 /* SearchVMImplementationTest.swift */,
+				5B2EBD0A246B284400F8EAC1 /* ResultsVMImplementationTest.swift */,
+				5B2EBD0C246B35C800F8EAC1 /* ItemVMImplementationTest.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		5B7D07C324674DAF008E561A /* View */ = {
@@ -441,9 +455,9 @@
 		5BA9D02F2467011C005F8A6E /* MeliChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
-				5BA9D0302467011C005F8A6E /* MeliChallengeTests.swift */,
-				5BA9D0322467011C005F8A6E /* Info.plist */,
 				5B2EBCFD246AF99A00F8EAC1 /* Coordinator */,
+				5B2EBD07246B246600F8EAC1 /* ViewModel */,
+				5BA9D0322467011C005F8A6E /* Info.plist */,
 			);
 			path = MeliChallengeTests;
 			sourceTree = "<group>";
@@ -669,10 +683,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B2EBD06246B180F00F8EAC1 /* MockRouter.swift in Sources */,
+				5B2EBD0D246B35C800F8EAC1 /* ItemVMImplementationTest.swift in Sources */,
 				5B2EBCFB246AF98D00F8EAC1 /* RouterImplementationTest.swift in Sources */,
 				5B2EBD01246B17D500F8EAC1 /* ResultsCoordinatorTest.swift in Sources */,
-				5BA9D0312467011C005F8A6E /* MeliChallengeTests.swift in Sources */,
 				5B2EBCFF246B112400F8EAC1 /* SearchCoordinatorTest.swift in Sources */,
+				5B2EBD0B246B284400F8EAC1 /* ResultsVMImplementationTest.swift in Sources */,
+				5B2EBD09246B248700F8EAC1 /* SearchVMImplementationTest.swift in Sources */,
 				5B2EBD03246B17E200F8EAC1 /* ItemCoordinatorTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

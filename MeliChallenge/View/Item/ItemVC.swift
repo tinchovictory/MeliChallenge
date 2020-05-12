@@ -16,7 +16,7 @@ class ItemVC: BaseViewController {
         }
     }
     
-    private var itemView: ItemView!
+    private var itemView: ItemView?
 
     override func loadView() {
         self.itemView = ItemView()
@@ -31,11 +31,11 @@ class ItemVC: BaseViewController {
 extension ItemVC: ItemVMViewDelegate {
     func itemDidUpdate(viewModel: ItemVM, item: Item) {
         os_log("ItemVC: itemDidUpdate(): itemId=%{PUBLIC}@", log: OSLog.view, type: .debug, viewModel.item?.id ?? "")
-        itemView.showItem(item)
+        itemView?.showItem(item)
     }
     
     func loadDidFail(viewModel: ItemVM) {
         os_log("ItemVC: loadDidFail()", log: OSLog.view, type: .debug)
-        itemView.showError()
+        itemView?.showError()
     }
 }
