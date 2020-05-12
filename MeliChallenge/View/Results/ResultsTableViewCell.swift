@@ -11,11 +11,15 @@ import UIKit
 class ResultsTableViewCell: UITableViewCell {
     var resultItem: ResultItem? {
         didSet {
-            thumbnail.image = resultItem?.thumbnail
             title.text = resultItem?.title
             price.text = nil
             if let priceVal = resultItem?.price {
                 price.text = "$ \(priceVal)"
+            }
+            if let resultImage = resultItem?.thumbnail {
+                thumbnail.image = resultImage
+            } else {
+                thumbnail.image = UIImage(named: "noImg")
             }
         }
     }

@@ -29,7 +29,11 @@ class DetailItemView: UIView {
         img.translatesAutoresizingMaskIntoConstraints = false
         img.contentMode = .scaleAspectFit
         img.backgroundColor = UIColor.white
-        img.image = item.picture
+        if let itemImg = item.picture {
+            img.image = itemImg
+        } else {
+            img.image = UIImage(named: "noImg")
+        }
         return img
     }()
 
@@ -64,9 +68,12 @@ class DetailItemView: UIView {
 
         scrollView.addSubview(picture)
         scrollView.addSubview(infoView)
-        scrollView.addSubview(descriptionContainer)
+
+        if self.item.description != nil {
+            scrollView.addSubview(descriptionContainer)
+        }
         descriptionContainer.addSubview(descriptionLbl)
-        
+
         setupLayout()
     }
 
@@ -94,17 +101,25 @@ class DetailItemView: UIView {
             infoView.topAnchor.constraint(equalTo: picture.bottomAnchor, constant: borderPadding),
             infoView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
             infoView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
-            
-            descriptionContainer.topAnchor.constraint(equalTo: infoView.bottomAnchor, constant: 40),
-            descriptionContainer.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
-            descriptionContainer.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
-            descriptionContainer.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            
+
             descriptionLbl.topAnchor.constraint(equalTo: descriptionContainer.topAnchor, constant: 30),
             descriptionLbl.leftAnchor.constraint(equalTo: descriptionContainer.leftAnchor, constant: borderPadding),
             descriptionLbl.rightAnchor.constraint(equalTo: descriptionContainer.rightAnchor, constant: -borderPadding),
             descriptionLbl.bottomAnchor.constraint(equalTo: descriptionContainer.bottomAnchor, constant: -30),
         ])
+        
+        if self.item.description == nil {
+            NSLayoutConstraint.activate([
+                infoView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                descriptionContainer.topAnchor.constraint(equalTo: infoView.bottomAnchor, constant: 40),
+                descriptionContainer.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
+                descriptionContainer.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
+                descriptionContainer.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            ])
+        }
     }
     
 }
