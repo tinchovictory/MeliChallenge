@@ -32,7 +32,9 @@ class ItemVMImplementation: ItemVM {
     
     var item: Item? {
         didSet {
-            viewDelegate?.itemDidUpdate(viewModel: self)
+            if let item = item {
+                viewDelegate?.itemDidUpdate(viewModel: self, item: item)
+            }
         }
     }
 }

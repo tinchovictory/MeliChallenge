@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ItemVMViewDelegate: class {
-    func itemDidUpdate(viewModel: ItemVM)
+    func itemDidUpdate(viewModel: ItemVM, item: Item)
     func loadDidFail(viewModel: ItemVM) // add error type
 }
 

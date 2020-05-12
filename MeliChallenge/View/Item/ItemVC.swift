@@ -9,29 +9,29 @@
 import UIKit
 import os.log
 
-class ItemVC: UIViewController {
+class ItemVC: BaseViewController {
     var viewModel: ItemVM? {
         didSet {
             viewModel?.viewDelegate = self
         }
     }
     
-    override func viewDidLoad() {
-    
-    }
-    
+    private var itemView: ItemView!
+
     override func loadView() {
-        self.view = UIView()
-        self.view.backgroundColor = .white
+        self.itemView = ItemView()
+        self.view = itemView
     }
 }
 
 extension ItemVC: ItemVMViewDelegate {
-    func itemDidUpdate(viewModel: ItemVM) {
+    func itemDidUpdate(viewModel: ItemVM, item: Item) {
         os_log("ItemVC: itemDidUpdate(): itemId=%{PUBLIC}@", log: OSLog.view, type: .debug, viewModel.item?.id ?? "")
+        itemView.showItem(item)
     }
     
     func loadDidFail(viewModel: ItemVM) {
         os_log("ItemVC: loadDidFail()", log: OSLog.view, type: .debug)
+        itemView.showError()
     }
 }

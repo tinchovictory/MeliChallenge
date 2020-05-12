@@ -17,6 +17,8 @@
 		5B2EBCE12469E73000F8EAC1 /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBCE02469E73000F8EAC1 /* ResultsTableViewCell.swift */; };
 		5B2EBCE3246A09B400F8EAC1 /* ErrorScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBCE2246A09B400F8EAC1 /* ErrorScreenView.swift */; };
 		5B2EBCE5246A140100F8EAC1 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBCE4246A140100F8EAC1 /* ResultsView.swift */; };
+		5B2EBCE7246A196D00F8EAC1 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBCE6246A196D00F8EAC1 /* ItemView.swift */; };
+		5B2EBCE9246A1A3200F8EAC1 /* DetailItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBCE8246A1A3200F8EAC1 /* DetailItemView.swift */; };
 		5B7D07C924674E3E008E561A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07C824674E3E008E561A /* Coordinator.swift */; };
 		5B7D07CB24674EA2008E561A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07CA24674EA2008E561A /* AppCoordinator.swift */; };
 		5B7D07CD24674F65008E561A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07CC24674F65008E561A /* Router.swift */; };
@@ -81,6 +83,8 @@
 		5B2EBCE02469E73000F8EAC1 /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
 		5B2EBCE2246A09B400F8EAC1 /* ErrorScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorScreenView.swift; sourceTree = "<group>"; };
 		5B2EBCE4246A140100F8EAC1 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
+		5B2EBCE6246A196D00F8EAC1 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
+		5B2EBCE8246A1A3200F8EAC1 /* DetailItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailItemView.swift; sourceTree = "<group>"; };
 		5B7D07C824674E3E008E561A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		5B7D07CA24674EA2008E561A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		5B7D07CC24674F65008E561A /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -326,6 +330,8 @@
 			isa = PBXGroup;
 			children = (
 				5B7D07F424679A62008E561A /* ItemVC.swift */,
+				5B2EBCE6246A196D00F8EAC1 /* ItemView.swift */,
+				5B2EBCE8246A1A3200F8EAC1 /* DetailItemView.swift */,
 			);
 			path = Item;
 			sourceTree = "<group>";
@@ -602,7 +608,9 @@
 				5B2EBCDB2469DE5F00F8EAC1 /* LoadingScreenView.swift in Sources */,
 				5B2EBCE5246A140100F8EAC1 /* ResultsView.swift in Sources */,
 				5B7D07FD24679E18008E561A /* ItemVMImplementation.swift in Sources */,
+				5B2EBCE7246A196D00F8EAC1 /* ItemView.swift in Sources */,
 				5B7D07ED24677A0D008E561A /* ResultsListImplementation.swift in Sources */,
+				5B2EBCE9246A1A3200F8EAC1 /* DetailItemView.swift in Sources */,
 				5B7D084C2469B13B008E561A /* MeliAPI.swift in Sources */,
 				5B7D08012467A1F2008E561A /* ItemImplementation.swift in Sources */,
 				5B2EBCE3246A09B400F8EAC1 /* ErrorScreenView.swift in Sources */,
