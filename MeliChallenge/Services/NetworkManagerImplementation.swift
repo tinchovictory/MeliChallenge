@@ -13,7 +13,12 @@ import AlamofireImage
 import os.log
 
 class NetworkManagerImplementation: NetworkManager {
+//    private var provider = MoyaProvider<MeliAPI>
     private var provider = MoyaProvider<MeliAPI>()
+    
+    init(provider: MoyaProvider<MeliAPI> = MoyaProvider<MeliAPI>()) {
+        self.provider = provider
+    }
     
     func getSearchResults(q: String, completition: @escaping (Result<[APISearchResult], APIError>) -> Void) {
         provider.request(.search(q: q)) { result in

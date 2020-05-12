@@ -31,6 +31,10 @@
 		5B2EBD12246B3C6100F8EAC1 /* ResultListImplementationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBD11246B3C6100F8EAC1 /* ResultListImplementationTest.swift */; };
 		5B2EBD14246B3C8B00F8EAC1 /* ItemModelImplementationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBD13246B3C8B00F8EAC1 /* ItemModelImplementationTest.swift */; };
 		5B2EBD18246B417A00F8EAC1 /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBD17246B417A00F8EAC1 /* MockNetworkManager.swift */; };
+		5B2EBD1E246B50C500F8EAC1 /* NetworkManagerImplementationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBD1D246B50C500F8EAC1 /* NetworkManagerImplementationTest.swift */; };
+		5B2EBD21246B55F000F8EAC1 /* SearchResults.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B2EBD20246B55F000F8EAC1 /* SearchResults.json */; };
+		5B2EBD23246B561C00F8EAC1 /* Item.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B2EBD22246B561C00F8EAC1 /* Item.json */; };
+		5B2EBD25246B564300F8EAC1 /* Description.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B2EBD24246B564300F8EAC1 /* Description.json */; };
 		5B7D07C924674E3E008E561A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07C824674E3E008E561A /* Coordinator.swift */; };
 		5B7D07CB24674EA2008E561A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07CA24674EA2008E561A /* AppCoordinator.swift */; };
 		5B7D07CD24674F65008E561A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07CC24674F65008E561A /* Router.swift */; };
@@ -108,6 +112,10 @@
 		5B2EBD11246B3C6100F8EAC1 /* ResultListImplementationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultListImplementationTest.swift; sourceTree = "<group>"; };
 		5B2EBD13246B3C8B00F8EAC1 /* ItemModelImplementationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModelImplementationTest.swift; sourceTree = "<group>"; };
 		5B2EBD17246B417A00F8EAC1 /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
+		5B2EBD1D246B50C500F8EAC1 /* NetworkManagerImplementationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerImplementationTest.swift; sourceTree = "<group>"; };
+		5B2EBD20246B55F000F8EAC1 /* SearchResults.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SearchResults.json; sourceTree = "<group>"; };
+		5B2EBD22246B561C00F8EAC1 /* Item.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Item.json; sourceTree = "<group>"; };
+		5B2EBD24246B564300F8EAC1 /* Description.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Description.json; sourceTree = "<group>"; };
 		5B7D07C824674E3E008E561A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		5B7D07CA24674EA2008E561A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		5B7D07CC24674F65008E561A /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -249,6 +257,24 @@
 				5B2EBD17246B417A00F8EAC1 /* MockNetworkManager.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		5B2EBD1C246B50AB00F8EAC1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5B2EBD1D246B50C500F8EAC1 /* NetworkManagerImplementationTest.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5B2EBD1F246B55D100F8EAC1 /* SampleData */ = {
+			isa = PBXGroup;
+			children = (
+				5B2EBD20246B55F000F8EAC1 /* SearchResults.json */,
+				5B2EBD22246B561C00F8EAC1 /* Item.json */,
+				5B2EBD24246B564300F8EAC1 /* Description.json */,
+			);
+			path = SampleData;
 			sourceTree = "<group>";
 		};
 		5B7D07C324674DAF008E561A /* View */ = {
@@ -469,6 +495,7 @@
 				5B7D084A2469B116008E561A /* Services */,
 				5B7D07C624674DC4008E561A /* SupportingFiles */,
 				5B7D080224684FFC008E561A /* Utils */,
+				5B2EBD1F246B55D100F8EAC1 /* SampleData */,
 				5BA9D0242467011C005F8A6E /* LaunchScreen.storyboard */,
 				5BA9D0222467011C005F8A6E /* Assets.xcassets */,
 				5BA9D0272467011C005F8A6E /* Info.plist */,
@@ -482,6 +509,7 @@
 				5B2EBCFD246AF99A00F8EAC1 /* Coordinator */,
 				5B2EBD07246B246600F8EAC1 /* ViewModel */,
 				5B2EBD0E246B3C3600F8EAC1 /* Model */,
+				5B2EBD1C246B50AB00F8EAC1 /* Services */,
 				5BA9D0322467011C005F8A6E /* Info.plist */,
 			);
 			path = MeliChallengeTests;
@@ -571,7 +599,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B2EBD23246B561C00F8EAC1 /* Item.json in Resources */,
 				5BA9D0262467011C005F8A6E /* LaunchScreen.storyboard in Resources */,
+				5B2EBD25246B564300F8EAC1 /* Description.json in Resources */,
+				5B2EBD21246B55F000F8EAC1 /* SearchResults.json in Resources */,
 				5BA9D0232467011C005F8A6E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -715,6 +746,7 @@
 				5B2EBCFB246AF98D00F8EAC1 /* RouterImplementationTest.swift in Sources */,
 				5B2EBD01246B17D500F8EAC1 /* ResultsCoordinatorTest.swift in Sources */,
 				5B2EBCFF246B112400F8EAC1 /* SearchCoordinatorTest.swift in Sources */,
+				5B2EBD1E246B50C500F8EAC1 /* NetworkManagerImplementationTest.swift in Sources */,
 				5B2EBD0B246B284400F8EAC1 /* ResultsVMImplementationTest.swift in Sources */,
 				5B2EBD09246B248700F8EAC1 /* SearchVMImplementationTest.swift in Sources */,
 				5B2EBD03246B17E200F8EAC1 /* ItemCoordinatorTest.swift in Sources */,

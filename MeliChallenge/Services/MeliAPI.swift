@@ -13,6 +13,7 @@ enum MeliAPI {
     private static let baseUrl = "https://api.mercadolibre.com/"
     private static let searchPath = "sites/MLA/search"
     private static let itemPath = "items/"
+    private static let descriptionSubpath = "/descriptions"
 
     case search(q: String)
     case item(id: String)
@@ -29,7 +30,7 @@ extension MeliAPI: TargetType {
         switch self {
         case .search: return MeliAPI.searchPath
         case .item(id: let id): return MeliAPI.itemPath + id
-        case .itemDescription(id: let id): return MeliAPI.itemPath + id + "/descriptions"
+        case .itemDescription(id: let id): return MeliAPI.itemPath + id + MeliAPI.descriptionSubpath
         }
     }
     
@@ -40,7 +41,11 @@ extension MeliAPI: TargetType {
     }
     
     var sampleData: Data {
-        return Data() // TODO: Change to real test data
+        switch self {
+        case .search: return stubbedResponse(filename: "SearchResults")
+        case .item: return stubbedResponse(filename: "Item")
+        case .itemDescription: return stubbedResponse(filename: "Description")
+        }
     }
     
     var task: Task {
@@ -54,5 +59,14 @@ extension MeliAPI: TargetType {
     var headers: [String : String]? {
         return ["Content-type": "application/json"]
     }
-
+    
+    // MARK: Stubbed data
+    private func stubbedResponse(filename: String) -> Data! {
+        @objc class TestClass: NSObject { }
+        
+        let bundle = Bundle.init(for: TestClass.self)
+        let path = bundle.path(forResource: filename, ofType: "json")
+        return (try? Data(contentsOf: URL(fileURLWithPath: path!)))
+    }
 }
+
