@@ -31,9 +31,8 @@ class ResultsCoordinator: Coordinator {
         viewModel.coordinatorDelegate = self
         viewModel.model = model
 
-        let resultsVC = ResultsVC()
-        resultsVC.viewModel = viewModel
-        
+        let resultsVC = ResultsVC(viewModel: viewModel)
+
         self.router.push(resultsVC, isAnimated: true, withCoordinator: self)
         os_log("ResultsCoordinator: start()", log: OSLog.navigation, type: .debug)
     }

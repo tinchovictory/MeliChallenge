@@ -10,10 +10,21 @@ import UIKit
 import os.log
 
 class ItemVC: BaseViewController {
-    var viewModel: ItemVM? {
-        didSet {
-            viewModel?.viewDelegate = self
-        }
+//    var viewModel: ItemVM? {
+//        didSet {
+//            viewModel?.viewDelegate = self
+//        }
+//    }
+    private var viewModel: ItemVM
+    
+    required init(viewModel: ItemVM) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+        self.viewModel.viewDelegate = self
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     private var itemView: ItemView?

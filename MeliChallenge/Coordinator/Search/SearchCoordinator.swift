@@ -26,9 +26,8 @@ class SearchCoordinator: Coordinator {
         let viewModel = SearchVMImplementation()
         viewModel.coordinatorDelegate = self
 
-        let searchViewController = SearchViewController()
-        searchViewController.viewModel = viewModel
-        
+        let searchViewController = SearchViewController(viewModel: viewModel)
+
         router.push(searchViewController, isAnimated: false, withCoordinator: self)
         os_log("SearchCoordinator: start()", log: OSLog.navigation, type: .debug)
     }

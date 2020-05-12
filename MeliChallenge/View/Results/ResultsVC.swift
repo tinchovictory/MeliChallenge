@@ -10,10 +10,16 @@ import UIKit
 
 class ResultsVC: BaseViewController {
     
-    var viewModel: ResultsVM? {
-        didSet {
-            viewModel?.viewDelegate = self
-        }
+    private var viewModel: ResultsVM
+    
+    required init(viewModel: ResultsVM) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+        self.viewModel.viewDelegate = self
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     private var resultsView: ResultsView?
@@ -26,20 +32,20 @@ class ResultsVC: BaseViewController {
 
 extension ResultsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.viewModel?.selectItemAt(index: indexPath.row)
+        self.viewModel.selectItemAt(index: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
 extension ResultsVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.viewModel?.numberOfItems ?? 0
+        self.viewModel.numberOfItems
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ResultsTableView.cellIdentifier, for: indexPath) as! ResultsTableViewCell
         
-        if let item = viewModel?.itemAt(index: indexPath.row) {
+        if let item = viewModel.itemAt(index: indexPath.row) {
             cell.resultItem = item
         }
         

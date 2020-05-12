@@ -25,15 +25,14 @@ class ItemCoordinator: Coordinator {
     }
     
     func start() {
-        let itemVC = ItemVC()
         let model = ItemModelImplementation(itemId: self.itemId, networkManager: NetworkManagerImplementation())
         
         let viewModel = ItemVMImplementation()
         viewModel.coordinatorDelegate = self
         viewModel.model = model
         
-        itemVC.viewModel = viewModel
-        
+        let itemVC = ItemVC(viewModel: viewModel)
+
         self.router.push(itemVC, isAnimated: true, withCoordinator: self)
         os_log("ItemCoordinator: start()", log: OSLog.navigation, type: .debug)
     }

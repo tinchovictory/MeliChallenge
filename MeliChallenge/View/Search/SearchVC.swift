@@ -11,8 +11,17 @@ import UIKit
 class SearchViewController: BaseViewController {
     
     private let searchBar = UISearchBar()
-    var viewModel: SearchVM?
-
+    private var viewModel: SearchVM
+    
+    required init(viewModel: SearchVM) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
         self.view = UIView()
         self.view.backgroundColor = .white
@@ -31,11 +40,11 @@ class SearchViewController: BaseViewController {
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        viewModel?.search = searchBar.text ?? ""
+        viewModel.search = searchBar.text ?? ""
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        viewModel?.submit()
+        viewModel.submit()
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
