@@ -32,42 +32,11 @@ class DetailItemView: UIView {
         img.image = item.picture
         return img
     }()
-    
-    private lazy var condition: UILabel = {
-        let lbl = UILabel()
-        lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        lbl.textColor = UIColor.secondaryTextColor
-        lbl.text = "\(item.condition.capitalized) - \(item.quantity) Remaining"
-        return lbl
-    }()
-    
-    private lazy var title: UILabel = {
-        let lbl = UILabel()
-        lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.font = UIFont.systemFont(ofSize: 30, weight: .regular)
-        lbl.numberOfLines = 0
-        lbl.text = item.title
-        return lbl
-    }()
-    
-    private lazy var price: UILabel = {
-        let lbl = UILabel()
-        lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.font = UIFont.systemFont(ofSize: 40, weight: .medium)
-        lbl.text = "$ \(item.price)"
-        return lbl
-    }()
-    
-    private let buyBtn: UIButton = {
-        let btn = UIButton(type: .system)
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.tintColor = UIColor.white
-        btn.backgroundColor = UIColor.secondaryColor
-        btn.setTitle("Buy", for: .normal)
-        btn.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
-        btn.layer.cornerRadius = 5
-        return btn
+
+    private lazy var infoView: InfoView = {
+        let infoView = InfoView(item: item)
+        infoView.translatesAutoresizingMaskIntoConstraints = false
+        return infoView
     }()
     
     private let descriptionContainer: UIView = {
@@ -93,10 +62,7 @@ class DetailItemView: UIView {
         self.addSubview(scrollView)
 
         scrollView.addSubview(picture)
-        scrollView.addSubview(condition)
-        scrollView.addSubview(title)
-        scrollView.addSubview(price)
-        scrollView.addSubview(buyBtn)
+        scrollView.addSubview(infoView)
         scrollView.addSubview(descriptionContainer)
         descriptionContainer.addSubview(descriptionLbl)
         
@@ -124,24 +90,11 @@ class DetailItemView: UIView {
             picture.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.5),
             picture.widthAnchor.constraint(equalTo: self.widthAnchor),
             
-            condition.topAnchor.constraint(equalTo: picture.bottomAnchor, constant: borderPadding),
-            condition.leftAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leftAnchor, constant: borderPadding),
-            condition.rightAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.rightAnchor, constant: -borderPadding),
+            infoView.topAnchor.constraint(equalTo: picture.bottomAnchor, constant: borderPadding),
+            infoView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
+            infoView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
             
-            title.topAnchor.constraint(equalTo: condition.bottomAnchor, constant: 15),
-            title.leftAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leftAnchor, constant: borderPadding),
-            title.rightAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.rightAnchor, constant: -borderPadding),
-            
-            price.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 15),
-            price.leftAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leftAnchor, constant: borderPadding),
-            price.rightAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.rightAnchor, constant: -borderPadding),
-
-            buyBtn.topAnchor.constraint(equalTo: price.bottomAnchor, constant: 25),
-            buyBtn.leftAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leftAnchor, constant: borderPadding),
-            buyBtn.rightAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.rightAnchor, constant: -borderPadding),
-            buyBtn.heightAnchor.constraint(equalToConstant: 60),
-            
-            descriptionContainer.topAnchor.constraint(equalTo: buyBtn.bottomAnchor, constant: 40),
+            descriptionContainer.topAnchor.constraint(equalTo: infoView.bottomAnchor, constant: 40),
             descriptionContainer.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
             descriptionContainer.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
             descriptionContainer.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
@@ -152,4 +105,5 @@ class DetailItemView: UIView {
             descriptionLbl.bottomAnchor.constraint(equalTo: descriptionContainer.bottomAnchor, constant: -30),
         ])
     }
+    
 }

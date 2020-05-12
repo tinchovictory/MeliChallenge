@@ -22,6 +22,10 @@ class ItemVC: BaseViewController {
         self.itemView = ItemView()
         self.view = itemView
     }
+ 
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        print(UIDevice.current.orientation.isPortrait)
+    }
 }
 
 extension ItemVC: ItemVMViewDelegate {
