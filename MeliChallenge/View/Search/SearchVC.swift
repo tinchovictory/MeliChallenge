@@ -24,6 +24,8 @@ class SearchViewController: BaseViewController {
         searchBar.searchTextField.backgroundColor = .white
         searchBar.searchTextField.leftView?.tintColor = UIColor.secondaryTextColor
         searchBar.placeholder = "Search on Mercado Libre"
+        searchBar.searchTextField.layer.cornerRadius = 18
+        searchBar.searchTextField.layer.masksToBounds = true
     }
 }
 

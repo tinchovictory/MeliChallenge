@@ -9,6 +9,8 @@
 import UIKit
 
 protocol Router: class {
+    var childCoordinators: Int { get }
+    
     func push(_ vc: UIViewController, isAnimated: Bool, withCoordinator: Coordinator)
     func pop(isAnimated: Bool)
 }

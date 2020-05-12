@@ -20,6 +20,11 @@
 		5B2EBCE7246A196D00F8EAC1 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBCE6246A196D00F8EAC1 /* ItemView.swift */; };
 		5B2EBCE9246A1A3200F8EAC1 /* DetailItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBCE8246A1A3200F8EAC1 /* DetailItemView.swift */; };
 		5B2EBCEB246A42F700F8EAC1 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBCEA246A42F700F8EAC1 /* InfoView.swift */; };
+		5B2EBCFB246AF98D00F8EAC1 /* RouterImplementationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBCFA246AF98D00F8EAC1 /* RouterImplementationTest.swift */; };
+		5B2EBCFF246B112400F8EAC1 /* SearchCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBCFE246B112400F8EAC1 /* SearchCoordinatorTest.swift */; };
+		5B2EBD01246B17D500F8EAC1 /* ResultsCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBD00246B17D500F8EAC1 /* ResultsCoordinatorTest.swift */; };
+		5B2EBD03246B17E200F8EAC1 /* ItemCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBD02246B17E200F8EAC1 /* ItemCoordinatorTest.swift */; };
+		5B2EBD06246B180F00F8EAC1 /* MockRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2EBD05246B180F00F8EAC1 /* MockRouter.swift */; };
 		5B7D07C924674E3E008E561A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07C824674E3E008E561A /* Coordinator.swift */; };
 		5B7D07CB24674EA2008E561A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07CA24674EA2008E561A /* AppCoordinator.swift */; };
 		5B7D07CD24674F65008E561A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D07CC24674F65008E561A /* Router.swift */; };
@@ -87,6 +92,11 @@
 		5B2EBCE6246A196D00F8EAC1 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		5B2EBCE8246A1A3200F8EAC1 /* DetailItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailItemView.swift; sourceTree = "<group>"; };
 		5B2EBCEA246A42F700F8EAC1 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		5B2EBCFA246AF98D00F8EAC1 /* RouterImplementationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterImplementationTest.swift; sourceTree = "<group>"; };
+		5B2EBCFE246B112400F8EAC1 /* SearchCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinatorTest.swift; sourceTree = "<group>"; };
+		5B2EBD00246B17D500F8EAC1 /* ResultsCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsCoordinatorTest.swift; sourceTree = "<group>"; };
+		5B2EBD02246B17E200F8EAC1 /* ItemCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCoordinatorTest.swift; sourceTree = "<group>"; };
+		5B2EBD05246B180F00F8EAC1 /* MockRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRouter.swift; sourceTree = "<group>"; };
 		5B7D07C824674E3E008E561A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		5B7D07CA24674EA2008E561A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		5B7D07CC24674F65008E561A /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -181,6 +191,26 @@
 				5B2EBCE2246A09B400F8EAC1 /* ErrorScreenView.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		5B2EBCFD246AF99A00F8EAC1 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				5B2EBD04246B180600F8EAC1 /* Mock */,
+				5B2EBCFA246AF98D00F8EAC1 /* RouterImplementationTest.swift */,
+				5B2EBCFE246B112400F8EAC1 /* SearchCoordinatorTest.swift */,
+				5B2EBD00246B17D500F8EAC1 /* ResultsCoordinatorTest.swift */,
+				5B2EBD02246B17E200F8EAC1 /* ItemCoordinatorTest.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		5B2EBD04246B180600F8EAC1 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				5B2EBD05246B180F00F8EAC1 /* MockRouter.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		5B7D07C324674DAF008E561A /* View */ = {
@@ -413,6 +443,7 @@
 			children = (
 				5BA9D0302467011C005F8A6E /* MeliChallengeTests.swift */,
 				5BA9D0322467011C005F8A6E /* Info.plist */,
+				5B2EBCFD246AF99A00F8EAC1 /* Coordinator */,
 			);
 			path = MeliChallengeTests;
 			sourceTree = "<group>";
@@ -637,7 +668,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B2EBD06246B180F00F8EAC1 /* MockRouter.swift in Sources */,
+				5B2EBCFB246AF98D00F8EAC1 /* RouterImplementationTest.swift in Sources */,
+				5B2EBD01246B17D500F8EAC1 /* ResultsCoordinatorTest.swift in Sources */,
 				5BA9D0312467011C005F8A6E /* MeliChallengeTests.swift in Sources */,
+				5B2EBCFF246B112400F8EAC1 /* SearchCoordinatorTest.swift in Sources */,
+				5B2EBD03246B17E200F8EAC1 /* ItemCoordinatorTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

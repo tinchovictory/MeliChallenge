@@ -12,7 +12,8 @@ import os.log
 class RouterImplementation: NSObject, Router {
     let navigationController: UINavigationController
     private var coordinators: [Coordinator]
-    
+    var childCoordinators: Int { coordinators.count }
+
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
         self.coordinators = []
@@ -26,9 +27,15 @@ class RouterImplementation: NSObject, Router {
     }
 
     func pop(isAnimated: Bool) {
+        if childCoordinators == 1 {
+            fatalError("The root view controller can't be removed")
+        }
+        
         navigationController.popViewController(animated: isAnimated)
-        coordinators.last?.dismiss()
-        coordinators.removeLast()
+        if let lastCoordinator = coordinators.last {
+            lastCoordinator.dismiss()
+            coordinators.removeLast()
+        }
         os_log("Router: pop(): manual coordinator dismiss", log: OSLog.navigation, type: .debug)
     }
 }
@@ -43,9 +50,11 @@ extension RouterImplementation: UINavigationControllerDelegate {
         if navigationController.viewControllers.contains(fromVC) {
             return
         }
-        
-        coordinators.last?.dismiss()
-        coordinators.removeLast()
+
+        if let lastCoordinator = coordinators.last {
+            lastCoordinator.dismiss()
+            coordinators.removeLast()
+        }
         os_log("Router: navigationController(): automatic coordinator dismiss", log: OSLog.navigation, type: .debug)
     }
 }
