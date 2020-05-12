@@ -102,10 +102,10 @@ class DetailItemView: UIView {
             infoView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
             infoView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
 
-            descriptionLbl.topAnchor.constraint(equalTo: descriptionContainer.topAnchor, constant: 30),
-            descriptionLbl.leftAnchor.constraint(equalTo: descriptionContainer.leftAnchor, constant: borderPadding),
-            descriptionLbl.rightAnchor.constraint(equalTo: descriptionContainer.rightAnchor, constant: -borderPadding),
-            descriptionLbl.bottomAnchor.constraint(equalTo: descriptionContainer.bottomAnchor, constant: -30),
+            descriptionLbl.topAnchor.constraint(equalTo: descriptionContainer.safeAreaLayoutGuide.topAnchor, constant: 30),
+            descriptionLbl.leftAnchor.constraint(equalTo: descriptionContainer.safeAreaLayoutGuide.leftAnchor, constant: borderPadding),
+            descriptionLbl.rightAnchor.constraint(equalTo: descriptionContainer.safeAreaLayoutGuide.rightAnchor, constant: -borderPadding),
+            descriptionLbl.bottomAnchor.constraint(equalTo: descriptionContainer.safeAreaLayoutGuide.bottomAnchor, constant: -30),
         ])
         
         if self.item.description == nil {
