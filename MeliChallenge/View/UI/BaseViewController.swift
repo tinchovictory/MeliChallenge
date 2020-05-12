@@ -15,5 +15,7 @@ class BaseViewController: UIViewController {
         // set navigation bar colors
         navigationController?.navigationBar.barTintColor = UIColor.mainColor
         navigationController?.navigationBar.tintColor = UIColor.black
+        
+//        navigationController?.navigationBar.barStyle = UIBarStyle.default
     }
 }

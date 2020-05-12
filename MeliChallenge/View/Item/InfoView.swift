@@ -26,6 +26,7 @@ class InfoView: UIView {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.font = UIFont.systemFont(ofSize: 30, weight: .regular)
+        lbl.textColor = .black
         lbl.numberOfLines = 0
         lbl.text = item.title
         return lbl
@@ -35,6 +36,7 @@ class InfoView: UIView {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.font = UIFont.systemFont(ofSize: 40, weight: .medium)
+        lbl.textColor = .black
         lbl.text = "$ \(item.price)"
         return lbl
     }()

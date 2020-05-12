@@ -20,6 +20,10 @@ class SearchViewController: BaseViewController {
         navigationItem.titleView = searchBar
         searchBar.delegate = self
         searchBar.sizeToFit()
+        searchBar.searchTextField.textColor = .black
+        searchBar.searchTextField.backgroundColor = .white
+        searchBar.searchTextField.leftView?.tintColor = UIColor.secondaryTextColor
+        searchBar.placeholder = "Search on Mercado Libre"
     }
 }
 

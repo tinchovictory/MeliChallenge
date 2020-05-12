@@ -33,6 +33,7 @@ class ResultsTableViewCell: UITableViewCell {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        lbl.textColor = .black
         lbl.numberOfLines = 0
         return lbl
     }()
@@ -41,12 +42,15 @@ class ResultsTableViewCell: UITableViewCell {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.font = UIFont.systemFont(ofSize: 25, weight: .medium)
+        lbl.textColor = .black
         return lbl
     }()
     
     // MARK: Iniializer
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+       
+        self.backgroundColor = .white
         
         // set the line separator to full width
         self.separatorInset = UIEdgeInsets.zero

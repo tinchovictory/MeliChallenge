@@ -49,6 +49,7 @@ class DetailItemView: UIView {
     private lazy var descriptionLbl: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.textColor = .black
         lbl.text = item.description
         lbl.numberOfLines = 0
         return lbl

@@ -15,6 +15,8 @@ class ResultsTableView: UITableView {
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         
+        self.backgroundColor = .white
+        
         // register cell
         self.register(ResultsTableViewCell.self, forCellReuseIdentifier: ResultsTableView.cellIdentifier)
     }
