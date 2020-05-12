@@ -55,7 +55,11 @@ extension ResultsVC: UITableViewDataSource {
 
 extension ResultsVC: ResultsVMViewDelegate {
     func resultsDidUpdate(viewModel: ResultsVM) {
-        self.resultsView?.showResultsTable(delegate: self, dataSource: self)
+        if viewModel.numberOfItems == 0 {
+            self.resultsView?.showEmptySearch()
+        } else {
+            self.resultsView?.showResultsTable(delegate: self, dataSource: self)
+        }
     }
 
     func restulsDidError(viewModel: ResultsVM) {

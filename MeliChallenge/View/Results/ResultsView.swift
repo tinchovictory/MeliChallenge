@@ -40,6 +40,13 @@ class ResultsView: UIView {
         self.addSubview(self.contentView)
         setupLayout()
     }
+
+    func showEmptySearch() {
+        self.contentView.removeFromSuperview()
+        self.contentView = EmptySearchScreenView()
+        self.addSubview(self.contentView)
+        setupLayout()
+    }
     
     private func setupLayout() {
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
