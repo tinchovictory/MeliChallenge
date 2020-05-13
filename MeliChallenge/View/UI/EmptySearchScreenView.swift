@@ -25,6 +25,7 @@ class EmptySearchScreenView: UIView {
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.text = "There are no results for your search"
         lbl.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        lbl.textColor = UIColor.black
         lbl.numberOfLines = 0
         lbl.textAlignment = .center
         return lbl

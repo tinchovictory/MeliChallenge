@@ -25,6 +25,7 @@ class ErrorScreenView: UIView {
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.text = "Ooops, something went wrong...\nPlease try again later"
         lbl.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        lbl.textColor = UIColor.black
         lbl.numberOfLines = 0
         lbl.textAlignment = .center
         return lbl
