@@ -17,7 +17,7 @@ class SearchCoordinator: Coordinator {
     
     private let router: Router
     weak var delegate: SearchCoordinatorDelegate?
-    
+
     init(router: Router) {
         self.router = router
     }
@@ -26,7 +26,7 @@ class SearchCoordinator: Coordinator {
         let viewModel = SearchVMImplementation()
         viewModel.coordinatorDelegate = self
 
-        let searchViewController = SearchViewController(viewModel: viewModel)
+        let searchViewController = SearchVC(viewModel: viewModel)
 
         router.push(searchViewController, isAnimated: false, withCoordinator: self)
         os_log("SearchCoordinator: start()", log: OSLog.navigation, type: .debug)
@@ -52,6 +52,5 @@ extension SearchCoordinator: SearchVMCoordinatorDelegate {
 extension SearchCoordinator: ResultsCoordinatorDelegate {
     func resultsCoordinatorDidFinish(resultsCoordinator: ResultsCoordinator) {
         // nothing to be done when the child coordinator ends
-        // TODO: clear searchbar
     }
 }

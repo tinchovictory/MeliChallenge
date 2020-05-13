@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: BaseViewController {
+class SearchVC: BaseViewController {
     
     private let searchBar = UISearchBar()
     private var viewModel: SearchVM
@@ -38,7 +38,7 @@ class SearchViewController: BaseViewController {
     }
 }
 
-extension SearchViewController: UISearchBarDelegate {
+extension SearchVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.search = searchBar.text ?? ""
     }

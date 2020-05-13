@@ -16,6 +16,7 @@ class BaseViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = UIColor.mainColor
         navigationController?.navigationBar.tintColor = UIColor.black
         
-//        navigationController?.navigationBar.barStyle = UIBarStyle.default
+        let backBarButtton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backBarButtton
     }
 }
