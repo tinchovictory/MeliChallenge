@@ -10,11 +10,6 @@ import UIKit
 import os.log
 
 class ItemVC: BaseViewController {
-//    var viewModel: ItemVM? {
-//        didSet {
-//            viewModel?.viewDelegate = self
-//        }
-//    }
     private var viewModel: ItemVM
     
     required init(viewModel: ItemVM) {
